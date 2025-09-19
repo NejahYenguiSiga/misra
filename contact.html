@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Contact — Misra Group</title>
+  <meta name="description" content="Contact Misra Group. We respond within one business day." />
+  <link rel="canonical" href="/contact.html" />
+  <link rel="icon" href="/images/logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Back to top button -->
+  <button id="backToTop" aria-label="Back to top" title="Back to top">▲</button>
+  <header id="header" class="header">
+    <div class="container nav-container">
+      <a href="/index.html" class="logo" aria-label="Misra Group Home">
+        <span class="logo-mark" aria-hidden="true">MG</span>
+        <span class="logo-text">Misra <strong>Group</strong></span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Open menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <ul id="nav-menu" class="nav-menu">
+          <li><a href="/index.html" class="active">Home</a></li>
+          <li><a href="/poultry.html">Poultry</a></li>
+          <li><a href="/olive.html">Olive</a></li>
+          <li><a href="/export.html">Export</a></li>
+          <li><a href="/zerotrace.html">Zero Trace</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="lang-switch" aria-label="Language switcher">
+          <button id="langBtn" class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false">
+            <img id="langFlag" src="https://flagcdn.com/w20/us.png" width="20" height="14" alt="English" loading="lazy" />
+            <span id="langCode">EN</span>
+          </button>
+          <ul id="langMenu" class="lang-menu" role="menu" aria-label="Select language" aria-hidden="true">
+            <li role="menuitem" data-lang="en" data-flag="https://flagcdn.com/w20/us.png"><img src="https://flagcdn.com/w20/us.png" width="20" height="14" alt="English" loading="lazy" /> EN</li>
+            <li role="menuitem" data-lang="fr" data-flag="https://flagcdn.com/w20/fr.png"><img src="https://flagcdn.com/w20/fr.png" width="20" height="14" alt="Français" loading="lazy" /> FR</li>
+            <li role="menuitem" data-lang="es" data-flag="https://flagcdn.com/w20/es.png"><img src="https://flagcdn.com/w20/es.png" width="20" height="14" alt="Español" loading="lazy" /> ES</li>
+            <li role="menuitem" data-lang="de" data-flag="https://flagcdn.com/w20/de.png"><img src="https://flagcdn.com/w20/de.png" width="20" height="14" alt="Deutsch" loading="lazy" /> DE</li>
+            <li role="menuitem" data-lang="ar" data-flag="https://flagcdn.com/w20/tn.png"><img src="https://flagcdn.com/w20/tn.png" width="20" height="14" alt="العربية" loading="lazy" /> AR</li>
+          </ul>
+        </div>
+        <button id="themeToggle" class="lang-btn" type="button" aria-label="Toggle theme">🌓</button>
+      </nav>
+    </div>
+    
+  </header>
+
+  <main>
+    <section class="section contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h2>Contact <span class="accent">Us</span></h2>
+            <p>Tell us about your facility and requirements. We’ll respond within one business day.</p>
+            <ul class="contact-list">
+              <li><span>📍</span> Sfax, Sakiet Ezzit, Tunisia</li>
+              <li><span>📞</span> +216 27 91 27 12</li>
+              <li><span>✉️</span> contact@zerotrace.tn</li>
+              <li class="socials">
+                <a href="#" aria-label="LinkedIn">in</a>
+                <a href="#" aria-label="Twitter">tw</a>
+                <a href="#" aria-label="Facebook">fb</a>
+              </li>
+            </ul>
+            <div class="map-card">
+              <div class="map-embed">
+                <iframe class="map-frame" data-provider="google" title="Zero Trace Office - Google Maps" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Municipality%20Sakiet%20Eddaier%20Office&output=embed"></iframe>
+              </div>
+            </div>
+          </div>
+          <form id="contactForm" class="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Jane Doe" required />
+                <small class="error" aria-live="polite"></small>
+              </div>
+              <div class="form-field">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" placeholder="Your Company" required />
+                <small class="error" aria-live="polite"></small>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@company.com" required />
+                <small class="error" aria-live="polite"></small>
+              </div>
+              <div class="form-field">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="+1 555 000 1234" pattern="^[0-9()+ -]{7,}$" required />
+                <small class="error" aria-live="polite"></small>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell us about your facility, timelines, and scope." required></textarea>
+              <small class="error" aria-live="polite"></small>
+            </div>
+            <input type="text" name="company_website" id="hp" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <input type="text" name="website" id="hp2" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <input type="hidden" name="ts" id="ts" value="" />
+            <button type="submit" class="btn btn-primary btn-block"><span class="icon-left">✉️</span>Send Email</button>
+            <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark">MG</span>
+        <span class="logo-text">Misra <strong>Group</strong></span>
+      </div>
+      <div class="footer-meta">
+        <span>© <span id="year"></span> Misra Group. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html> 
