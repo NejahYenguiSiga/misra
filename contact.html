@@ -3,11 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.gstatic.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; form-action https://desk.zoho.com; frame-src https://www.google.com;" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Contact — Misra Group</title>
   <meta name="description" content="Contact Misra Group. We respond within one business day." />
   <link rel="canonical" href="/contact.html" />
   <link rel="icon" href="/images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -75,46 +79,65 @@
               </div>
             </div>
           </div>
-          <form id="contactForm" class="contact-form" novalidate>
+
+          <form id="contactForm" class="contact-form" action="https://desk.zoho.com/support/WebToCase" method="POST" enctype="multipart/form-data" novalidate>
+            <!-- Required Zoho Desk hidden fields -->
+            <input type="hidden" name="xnQsjsdp" value="edbsn3db25e2a68d44829eef76377f9e9377c" />
+            <input type="hidden" name="xmIwtLD" value="edbsnf42758c01460175df69cef3f36c0170c0a8335962cec59611fb2ce95e1a6e361" />
+            <input type="hidden" name="xJdfEaS" value="" />
+            <input type="hidden" name="actionType" value="Q2FzZXM=" />
+            <input type="hidden" name="returnURL" value="http://127.0.0.1:5501/contact.html?desk_return=1" />
+
             <div class="form-row">
               <div class="form-field">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Jane Doe" required />
+                <input type="text" id="name" name="Contact Name" placeholder="Jane Doe" required />
                 <small class="error" aria-live="polite"></small>
               </div>
               <div class="form-field">
                 <label for="company">Company</label>
-                <input type="text" id="company" name="company" placeholder="Your Company" required />
+                <!-- Desk default subject field -->
+                <input type="text" id="company" name="Subject" placeholder="Your Company" required />
                 <small class="error" aria-live="polite"></small>
               </div>
             </div>
             <div class="form-row">
               <div class="form-field">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="you@company.com" required />
+                <input type="email" id="email" name="Email" placeholder="you@company.com" required />
                 <small class="error" aria-live="polite"></small>
               </div>
               <div class="form-field">
                 <label for="phone">Phone</label>
-                <input type="tel" id="phone" name="phone" placeholder="+1 555 000 1234" pattern="^[0-9()+ -]{7,}$" required />
+                <input type="tel" id="phone" name="Phone" placeholder="+1 555 000 1234" pattern="[0-9+()- ]{7,}" required />
                 <small class="error" aria-live="polite"></small>
               </div>
             </div>
             <div class="form-field">
               <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="Tell us about your facility, timelines, and scope." required></textarea>
+              <textarea id="message" name="Description" rows="8" placeholder="Tell us about your facility, timelines, and scope." required></textarea>
               <small class="error" aria-live="polite"></small>
             </div>
-            <input type="text" name="company_website" id="hp" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
-            <input type="text" name="website" id="hp2" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
-            <input type="hidden" name="ts" id="ts" value="" />
-            <button type="submit" class="btn btn-primary btn-block"><span class="icon-left">✉️</span>Send Email</button>
+            <br>
+            
+            <button type="submit" class="btn btn-primary btn-block"><span class="icon-left">✉️</span>Send</button>
             <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
           </form>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Submit loader overlay -->
+  <div id="formLoading" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(2px);z-index:9999;align-items:center;justify-content:center;">
+    <div style="background:#111827;color:#e5e7eb;padding:18px 22px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.35);font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="display:inline-block;width:14px;height:14px;border:2px solid #2ec27e;border-top-color:transparent;border-radius:50%;animation:spin 1s linear infinite"></span>
+        <span>Sending your request...</span>
+      </div>
+    </div>
+  </div>
+  <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
 
   <footer class="footer">
     <div class="container footer-inner">
@@ -128,7 +151,16 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  
   <script src="script.js"></script>
 </body>
 </html> 
+
+
+
+
+
+
+
+
+

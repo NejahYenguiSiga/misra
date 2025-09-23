@@ -735,7 +735,7 @@ html[dir="rtl"] .section.contact .contact-form { direction: rtl; }
 
 /* Active nav link */
 .nav .nav-menu a.active { background: rgba(255,255,255,.12); color: var(--text); border-radius: 10px; }
-html[data-theme="light"] .nav .nav-menu a.active { background: rgba(0,0,0,.08); color: var(--text); }
+html[data-theme="light"] .nav .nav-menu a.active { background: rgba(0,0,0,.08); color: var(--text); } 
 /* Active nav: white text on green background */
 .nav .nav-menu a.active { background: #10b981 !important; color: #ffffff !important; }
 html[data-theme="light"] .nav .nav-menu a.active { background: #10b981 !important; color: #ffffff !important; } 
@@ -743,3 +743,45 @@ html[data-theme="light"] .nav .nav-menu a.active { background: #10b981 !importan
 /* Safety overrides: ensure hero is visible and not collapsed */
 .hero { min-height: 86vh !important; display: grid; align-items: center; }
 .reveal-up, .reveal-left, .reveal-right { opacity: 1 !important; transform: none !important; } 
+/* Message styles */
+.message {
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.message.success {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.message.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+
+/* Form status messages */
+.form-status {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.form-status.success {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.form-status.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+

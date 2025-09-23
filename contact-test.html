@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form Test - Success Log</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; background: #f5f5f5; }
+        .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: #333; }
+        input, textarea { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; font-size: 16px; }
+        input:focus, textarea:focus { border-color: #10b981; outline: none; }
+        button { background: #10b981; color: white; padding: 15px 30px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; }
+        button:hover { background: #059669; }
+        .form-status { margin-top: 15px; padding: 12px; border-radius: 6px; font-weight: 500; text-align: center; }
+        .success { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+        .error { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+        .info { background: #dbeafe; color: #1e40af; border: 1px solid #93c5fd; }
+        .log { background: #f8f9fa; padding: 15px; border-radius: 6px; font-family: monospace; white-space: pre-wrap; border: 1px solid #e9ecef; margin-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Contact Form Test - Success Log</h1>
+        <p>Testing the contact form functionality and showing success logs.</p>
+        
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" required value="Sabri Ellouze">
+            </div>
+            
+            <div class="form-group">
+                <label for="company">Company *</label>
+                <input type="text" id="company" name="company" required value="Misra Group">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required value="nejahyenguiusa@gmail.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone *</label>
+                <input type="tel" id="phone" name="phone" required value="+21627912712" pattern="[0-9+()- ]{7,}">
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="4" required>This is a test message from the contact form test page.
+
+Test Details:
+- Time: [Current Time]
+- Form: Working correctly
+- EmailJS: Ready for configuration
+- Status: All systems operational
+
+Best regards,
+Sabri Ellouze
+Misra Group</textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">
+                <span class="icon-left"></span>Send Test Email
+            </button>
+            
+            <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+        
+        <div id="log" class="log"></div>
+    </div>
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <script>
+        // Get log div first
+        const logDiv = document.getElementById('log');
+        
+        function log(message) {
+            console.log(message);
+            const timestamp = new Date().toLocaleTimeString();
+            if (logDiv) {
+                logDiv.innerHTML += `[${timestamp}] ${message}\n`;
+            }
+        }
+        
+        // Initialize EmailJS
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+            log(' EmailJS loaded successfully');
+        } else {
+            log(' EmailJS not loaded - this is normal for local testing');
+        }
+        
+        // Auto-fill current time
+        document.getElementById('message').value = document.getElementById('message').value.replace('[Current Time]', new Date().toLocaleString());
+        
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const formStatus = document.getElementById('formStatus');
+            const originalText = submitBtn.innerHTML;
+            
+            log(' Form submission started');
+            
+            // Show loading state
+            submitBtn.innerHTML = '<span class="icon-left"></span>Sending...';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = {
+                from_name: document.getElementById('name').value,
+                company: document.getElementById('company').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                message: document.getElementById('message').value
+            };
+            
+            log(' Form data prepared:');
+            log(`   Name: ${formData.from_name}`);
+            log(`   Company: ${formData.company}`);
+            log(`   Email: ${formData.email}`);
+            log(`   Phone: ${formData.phone}`);
+            log(`   Message: ${formData.message.substring(0, 50)}...`);
+            
+            // Check if EmailJS is available
+            if (typeof emailjs === 'undefined') {
+                log(' EmailJS not available - this is normal for local testing');
+                showStatus('EmailJS not loaded. This is normal for local testing. Upload to OVH server to test real email sending.', 'info');
+                resetButton();
+                return;
+            }
+            
+            log(' Attempting to send email via EmailJS...');
+            
+            // Send email using EmailJS
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
+                .then(function(response) {
+                    log(' Email sent successfully!');
+                    log(`   Status: ${response.status}`);
+                    log(`   Text: ${response.text}`);
+                    showStatus('Thank you! Your message has been sent successfully.', 'success');
+                    document.getElementById('contactForm').reset();
+                })
+                .catch(function(error) {
+                    log(' Email sending failed:');
+                    log(`   Error: ${error.text || error.message}`);
+                    log(' This is expected - you need to configure EmailJS first');
+                    showStatus('EmailJS not configured yet. Please set up your EmailJS account and update the script.', 'info');
+                })
+                .finally(function() {
+                    resetButton();
+                });
+            
+            function resetButton() {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                log(' Button reset to original state');
+            }
+            
+            function showStatus(message, type) {
+                if (formStatus) {
+                    formStatus.textContent = message;
+                    formStatus.className = `form-status ${type}`;
+                    log(` Status message: ${message}`);
+                }
+            }
+        });
+        
+        // Initial log
+        log(' Contact form test page loaded');
+        log(' Form validation: Working');
+        log(' UI: Ready');
+        log(' EmailJS: ' + (typeof emailjs !== 'undefined' ? 'Loaded' : 'Not loaded (normal for local testing)'));
+        log('---');
+    </script>
+</body>
+</html>
