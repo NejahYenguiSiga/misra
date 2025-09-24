@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://zerotrace.tn/" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b0f12" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; connect-src 'self'  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://images.unsplash.com https://flagcdn.com; font-src 'self' https://fonts.gstatic.com; frame-src https://www.google.com; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; connect-src 'self' https://api.emailjs.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://images.unsplash.com https://flagcdn.com; font-src 'self' https://fonts.gstatic.com; frame-src https://www.google.com; upgrade-insecure-requests" />
   <meta name="google-site-verification" content="PASTE_YOUR_GSC_CODE_HERE" />
   <!-- Hreflang (language routes) -->
   <link rel="alternate" href="https://zerotrace.tn/" hreflang="en" />
@@ -199,20 +199,20 @@
     <section id="home" class="hero section">
       <div class="hero-media" role="img" aria-label="Industrial cleaning background"></div>
       <div class="container hero-inner">
-        <h1 class="headline reveal-up">
+        <h1 class="headline reveal-up" data-i18n-html="hero.headline.html">
           Zero Trace — <span class="accent">Leave No Trace</span> After Our Work Is Done.
         </h1>
-        <p class="subhead reveal-up">
+        <p class="subhead reveal-up" data-i18n="hero.subhead">
           B2B deep cleaning and sanitization for industrial environments. We deliver compliance-ready, eco-conscious results that look, feel, and test cleaner.
         </p>
         <div class="hero-ctas reveal-up">
-          <a href="/contact.html" class="btn btn-primary"><span class="icon-left">✉️</span>Contact Us</a>
-          <a href="/zerotrace.html" class="btn btn-outline">Explore Services</a>
+          <a href="/contact.html" class="btn btn-primary" data-i18n="hero.cta.primary"><span class="icon-left">✉️</span>Contact Us</a>
+          <a href="/zerotrace.html" class="btn btn-outline" data-i18n="hero.cta.secondary">Explore Services</a>
         </div>
         <div class="hero-badges reveal-up">
-          <span>Eco-conscious</span>
-          <span>Compliance-first</span>
-          <span>Fast Response</span>
+          <span data-i18n="hero.badge1">Eco-conscious</span>
+          <span data-i18n="hero.badge2">Compliance-first</span>
+          <span data-i18n="hero.badge3">Fast Response</span>
         </div>
       </div>
       <div class="hero-gradient" aria-hidden="true"></div>
@@ -223,15 +223,15 @@
       <div class="container grid-2">
         <div class="sector-media" style="--img:url('images/Bab_Diwan_-_Porte_Delcassé_-_Sfax_-2-_باب_الديوان.jpg');"></div>
         <div class="split-content reveal-right">
-          <h2>About Zero <span class="accent">Trace</span></h2>
-          <p>
+          <h2 data-i18n-html="about.title.html">About Zero <span class="accent">Trace</span></h2>
+          <p data-i18n="about.body">
             We specialize in professional B2B cleaning and sanitation that meets rigorous industry standards. Our teams are trained for sensitive environments—from poultry farms to municipal waste sites—delivering measurable disinfection, residue removal, and odor control.
           </p>
           <ul class="checklist">
-            <li>Eco-friendly, science-backed methods</li>
-            <li>Compliance-focused protocols and reporting</li>
-            <li>Industrial-grade equipment and PPE</li>
-            <li>Rapid deployment and scheduled maintenance</li>
+            <li data-i18n="about.li1">Eco-friendly, science-backed methods</li>
+            <li data-i18n="about.li2">Compliance-focused protocols and reporting</li>
+            <li data-i18n="about.li3">Industrial-grade equipment and PPE</li>
+            <li data-i18n="about.li4">Rapid deployment and scheduled maintenance</li>
           </ul>
         </div>
       </div>
@@ -240,33 +240,33 @@
     <!-- Services Section -->
     <section id="services" class="section bg-contrast">
       <div class="container">
-        <h2 class="center">Core <span class="accent">Services</span></h2>
-        <p class="center section-intro">High-impact cleaning programs built for industrial reliability.</p>
+        <h2 class="center" data-i18n-html="services.title">Core <span class="accent">Services</span></h2>
+        <p class="center section-intro" data-i18n="services.intro">High-impact cleaning programs built for industrial reliability.</p>
         <div class="cards services">
           <article class="card reveal-up">
             <div class="icon">🧼</div>
-            <h3>Deep Sanitization & Disinfection</h3>
-            <p>Hospital-grade disinfection and ATP-tested sanitation for high-risk zones.</p>
+            <h3 data-i18n="services.c1.title">Deep Sanitization & Disinfection</h3>
+            <p data-i18n="services.c1.desc">Hospital-grade disinfection and ATP-tested sanitation for high-risk zones.</p>
           </article>
           <article class="card reveal-up">
             <div class="icon">⚙️</div>
-            <h3>Industrial Degreasing & Residue Removal</h3>
-            <p>Heavy-duty degreasers and foam cleaning for stubborn build-up and oils.</p>
+            <h3 data-i18n="services.c2.title">Industrial Degreasing & Residue Removal</h3>
+            <p data-i18n="services.c2.desc">Heavy-duty degreasers and foam cleaning for stubborn build-up and oils.</p>
           </article>
           <article class="card reveal-up">
             <div class="icon">🌬️</div>
-            <h3>Odor Control & Deodorization</h3>
-            <p>Neutralization programs targeting bacterial and organic odor sources.</p>
+            <h3 data-i18n="services.c3.title">Odor Control & Deodorization</h3>
+            <p data-i18n="services.c3.desc">Neutralization programs targeting bacterial and organic odor sources.</p>
           </article>
           <article class="card reveal-up">
             <div class="icon">🗑️</div>
-            <h3>Waste Removal & Remediation</h3>
-            <p>Safe handling, sorting, and pre-treatment aligned with regulations.</p>
+            <h3 data-i18n="services.c4.title">Waste Removal & Remediation</h3>
+            <p data-i18n="services.c4.desc">Safe handling, sorting, and pre-treatment aligned with regulations.</p>
           </article>
           <article class="card reveal-up">
             <div class="icon">🚨</div>
-            <h3>Emergency Outbreak Cleaning</h3>
-            <p>Rapid containment and disinfection protocols for critical events.</p>
+            <h3 data-i18n="services.c5.title">Emergency Outbreak Cleaning</h3>
+            <p data-i18n="services.c5.desc">Rapid containment and disinfection protocols for critical events.</p>
           </article>
         </div>
       </div>
@@ -275,27 +275,27 @@
     <!-- Industries We Serve -->
     <section id="sectors" class="section">
       <div class="container">
-        <h2 class="center">Industries We <span class="accent">Serve</span></h2>
+        <h2 class="center" data-i18n-html="sectors.title">Industries We <span class="accent">Serve</span></h2>
         <div class="cards sectors">
           <article class="card reveal-up">
             <div class="sector-media" style="--img:url('images/PoultryFarms.jpeg');"></div>
-            <h3>Poultry Farms</h3>
-            <p>Biosecurity-first programs to control pathogens and cross-contamination.</p>
+            <h3 data-i18n="sectors.c1.title">Poultry Farms</h3>
+            <p data-i18n="sectors.c1.desc">Biosecurity-first programs to control pathogens and cross-contamination.</p>
           </article>
           <article class="card reveal-up">
             <div class="sector-media" style="--img:url('images/Olive-oilPresses.png');"></div>
-            <h3>Olive-oil Presses</h3>
-            <p>Residue and oil removal while protecting food-grade environments.</p>
+            <h3 data-i18n="sectors.c2.title">Olive-oil Presses</h3>
+            <p data-i18n="sectors.c2.desc">Residue and oil removal while protecting food-grade environments.</p>
           </article>
           <article class="card reveal-up">
             <div class="sector-media" style="--img:url('images/Hotels.jpg');"></div>
-            <h3>Hotels</h3>
-            <p>Back-of-house deep cleaning and front-of-house disinfection schedules.</p>
+            <h3 data-i18n="sectors.c3.title">Hotels</h3>
+            <p data-i18n="sectors.c3.desc">Back-of-house deep cleaning and front-of-house disinfection schedules.</p>
           </article>
           <article class="card reveal-up">
             <div class="sector-media" style="--img:url('images/MunicipalWasteSites.png');"></div>
-            <h3>Municipal Waste Sites</h3>
-            <p>Odor suppression and decontamination for high-load facilities.</p>
+            <h3 data-i18n="sectors.c4.title">Municipal Waste Sites</h3>
+            <p data-i18n="sectors.c4.desc">Odor suppression and decontamination for high-load facilities.</p>
           </article>
         </div>
       </div>
@@ -304,8 +304,8 @@
     <!-- Clients Section -->
     <section id="clients" class="section bg-contrast">
       <div class="container">
-        <h2 class="center">Our <span class="accent">Clients</span></h2>
-        <p class="center section-intro">Trusted by operations leaders across agriculture, hospitality, and public works.</p>
+        <h2 class="center" data-i18n-html="clients.title">Our <span class="accent">Clients</span></h2>
+        <p class="center section-intro" data-i18n="clients.intro">Trusted by operations leaders across agriculture, hospitality, and public works.</p>
         <div class="cards clients">
           <article class="client-card reveal-up">
             <div class="client-logo">AF</div>
@@ -335,21 +335,21 @@
     <section id="why" class="section bg-contrast">
       <div class="container grid-2">
         <div>
-          <h2>Why Choose <span class="accent">Us</span></h2>
+          <h2 data-i18n-html="why.title">Why Choose <span class="accent">Us</span></h2>
           <ul class="benefits">
-            <li><strong>No-trace cleaning</strong> — finish that looks pristine and tests even better.</li>
-            <li><strong>Compliance</strong> — aligned with local and industry regulations.</li>
-            <li><strong>Safety</strong> — strict PPE and hazard controls.</li>
-            <li><strong>Fast response</strong> — rapid mobilization when you need it.</li>
-            <li><strong>Eco-conscious</strong> — reduced water, responsible chemistry.</li>
+            <li data-i18n="why.b1"><strong>No-trace cleaning</strong> — finish that looks pristine and tests even better.</li>
+            <li data-i18n="why.b2"><strong>Compliance</strong> — aligned with local and industry regulations.</li>
+            <li data-i18n="why.b3"><strong>Safety</strong> — strict PPE and hazard controls.</li>
+            <li data-i18n="why.b4"><strong>Fast response</strong> — rapid mobilization when you need it.</li>
+            <li data-i18n="why.b5"><strong>Eco-conscious</strong> — reduced water, responsible chemistry.</li>
           </ul>
           <br>
         </div>
         <div class="highlight-card">
-          <p class="eyebrow">Guarantee</p>
-          <h3>We leave no trace.</h3>
-          <p>Our name is our promise. From microbial loads to visible residue, we remove it—documented.</p>
-          <a href="#contact" class="btn btn-primary btn-block"><span class="icon-left">✉️</span>Contact Us</a>
+          <p class="eyebrow" data-i18n="guarantee.eyebrow">Guarantee</p>
+          <h3 data-i18n="guarantee.title">We leave no trace.</h3>
+          <p data-i18n="guarantee.body">Our name is our promise. From microbial loads to visible residue, we remove it—documented.</p>
+          <a href="/contact.html" class="btn btn-primary btn-block" data-i18n="guarantee.cta"><span class="icon-left">✉️</span>Contact Us</a>
         </div>
       </div>
     </section>
@@ -365,13 +365,13 @@
             <div class="icon">🧪</div>
             <h3 data-i18n="insights.a1.title">ATP Testing for Sanitization: Thresholds and Reporting</h3>
             <p data-i18n="insights.a1.desc">Why ATP matters, how we sample, and the pass/fail ranges we target in high‑risk zones.</p>
-            <a href="#contact" class="btn btn-outline" data-i18n="insights.a1.cta">Talk to an expert</a>
+            <a href="/contact.html" class="btn btn-outline" data-i18n="insights.a1.cta">Talk to an expert</a>
           </article>
           <article id="insight-odor-control" class="card reveal-up">
             <div class="icon">🌫️</div>
             <h3 data-i18n="insights.a2.title">Odor Control in Municipal Waste Sites: A Practical Playbook</h3>
             <p data-i18n="insights.a2.desc">Source identification, neutralization chemistry, and measurable suppression metrics.</p>
-            <a href="#contact" class="btn btn-outline" data-i18n="insights.a2.cta">Request the full SOP</a>
+            <a href="/contact.html" class="btn btn-outline" data-i18n="insights.a2.cta">Request the full SOP</a>
           </article>
         </div>
       </div>
@@ -406,11 +406,11 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="logo-mark">ZT</span>
-        <span class="logo-text">Zero <strong>Trace</strong></span>
+        <span class="logo-mark">MG</span>
+        <span class="logo-text">Misra <strong>Group</strong></span>
       </div>
       <div class="footer-meta">
-        <span>© <span id="year"></span> Zero Trace. All rights reserved.</span>
+        <span>© <span id="year"></span> Misra Group. All rights reserved.</span>
       </div>
     </div>
   </footer>

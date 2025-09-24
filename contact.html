@@ -61,8 +61,8 @@
       <div class="container">
         <div class="contact-grid">
           <div class="contact-info">
-            <h2>Contact <span class="accent">Us</span></h2>
-            <p>Tell us about your facility and requirements. We’ll respond within one business day.</p>
+            <h2 data-i18n-html="contact.title.html">Contact <span class="accent">Us</span></h2>
+            <p data-i18n="contact.lead">Tell us about your facility and requirements. We’ll respond within one business day.</p>
             <ul class="contact-list">
               <li><span>📍</span> Sfax, Sakiet Ezzit, Tunisia</li>
               <li><span>📞</span> +216 27 91 27 12</li>
@@ -90,37 +90,35 @@
 
             <div class="form-row">
               <div class="form-field">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="Contact Name" placeholder="Jane Doe" required />
+                <label for="name" data-i18n="contact.label.name">Name</label>
+                <input type="text" id="name" name="Contact Name" placeholder="Jane Doe" required data-i18n-placeholder="contact.placeholder.name" />
                 <small class="error" aria-live="polite"></small>
               </div>
               <div class="form-field">
-                <label for="company">Company</label>
+                <label for="company" data-i18n="contact.label.company">Company</label>
                 <!-- Desk default subject field -->
-                <input type="text" id="company" name="Subject" placeholder="Your Company" required />
+                <input type="text" id="company" name="Subject" placeholder="Your Company" required data-i18n-placeholder="contact.placeholder.company" />
                 <small class="error" aria-live="polite"></small>
               </div>
             </div>
             <div class="form-row">
               <div class="form-field">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="Email" placeholder="you@company.com" required />
+                <label for="email" data-i18n="contact.label.email">Email</label>
+                <input type="email" id="email" name="Email" placeholder="you@company.com" required data-i18n-placeholder="contact.placeholder.email" />
                 <small class="error" aria-live="polite"></small>
               </div>
               <div class="form-field">
-                <label for="phone">Phone</label>
-                <input type="tel" id="phone" name="Phone" placeholder="+1 555 000 1234" pattern="[0-9+()- ]{7,}" required />
+                <label for="phone" data-i18n="contact.label.phone">Phone</label>
+                <input type="tel" id="phone" name="Phone" placeholder="+1 555 000 1234" pattern="[0-9+()- ]{7,}" required data-i18n-placeholder="contact.placeholder.phone" />
                 <small class="error" aria-live="polite"></small>
               </div>
             </div>
             <div class="form-field">
-              <label for="message">Message</label>
-              <textarea id="message" name="Description" rows="8" placeholder="Tell us about your facility, timelines, and scope." required></textarea>
+              <label for="message" data-i18n="contact.label.message">Message</label>
+              <textarea id="message" name="Description" rows="5" placeholder="Tell us about your facility, timelines, and scope." required data-i18n-placeholder="contact.placeholder.message"></textarea>
               <small class="error" aria-live="polite"></small>
             </div>
-            <br>
-            
-            <button type="submit" class="btn btn-primary btn-block"><span class="icon-left">✉️</span>Send</button>
+            <button type="submit" class="btn btn-primary btn-block" data-i18n="contact.button"><span class="icon-left">✉️</span>Send</button>
             <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
           </form>
         </div>
