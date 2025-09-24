@@ -7,13 +7,112 @@ document.addEventListener('DOMContentLoaded', function() {
         
 	if (contactForm) {
 		const isZohoDesk = /^https?:\/\/desk\.zoho\.com\/support\/WebToCase/i.test(contactForm.getAttribute('action') || '');
+
+		// Basic client-side validation helpers
+		const nameInput = document.getElementById('name');
+		const companyInput = document.getElementById('company');
+		const emailInput = document.getElementById('email');
+		const phoneInput = document.getElementById('phone');
+		const messageInput = document.getElementById('message');
+
+		function getDict(){ try { const lang = localStorage.getItem('site_lang') || 'en'; return i18n[lang] || i18n.en; } catch(_) { return i18n.en; } }
+
+		// Rate limit helpers: one successful submission per hour
+		function getLastSubmitTs(){ try { return parseInt(localStorage.getItem('contact_last_submit_ts') || '0', 10) || 0; } catch(_) { return 0; } }
+		function setLastSubmitTs(){ try { localStorage.setItem('contact_last_submit_ts', String(Date.now())); } catch(_) {} }
+		function isRateLimited(){ const now = Date.now(); return (now - getLastSubmitTs()) < 3600000; }
+
+		function setError(inputEl, message){
+			const field = inputEl && inputEl.closest('.form-field');
+			if (!field) return;
+			const errorEl = field.querySelector('.error');
+			if (errorEl) { errorEl.textContent = message || ''; }
+			if (message) { inputEl.setAttribute('aria-invalid', 'true'); }
+			else { inputEl.removeAttribute('aria-invalid'); }
+		}
+		function validateRequired(inputEl){
+			const dict = getDict();
+			if (!inputEl || !String(inputEl.value || '').trim()) { setError(inputEl, dict['contact.error.required']); return false; }
+			setError(inputEl, ''); return true;
+		}
+		function validateEmail(inputEl){
+			const dict = getDict();
+			if (!validateRequired(inputEl)) return false;
+			const value = String(inputEl.value || '').trim();
+			const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+			if (!ok) { setError(inputEl, dict['contact.error.email']); return false; }
+			setError(inputEl, ''); return true;
+		}
+		function validatePhone(inputEl){
+			const dict = getDict();
+			if (!validateRequired(inputEl)) return false;
+			const value = String(inputEl.value || '').trim();
+			const ok = /^[0-9+()\-\s]{7,}$/.test(value);
+			if (!ok) { setError(inputEl, dict['contact.error.phone']); return false; }
+			setError(inputEl, ''); return true;
+		}
+		function validateMessage(inputEl){
+			const dict = getDict();
+			if (!validateRequired(inputEl)) return false;
+			if (String(inputEl.value || '').trim().length < 10) { setError(inputEl, dict['contact.error.min']); return false; }
+			setError(inputEl, ''); return true;
+		}
+		function validateAll(){
+			const results = [
+				validateRequired(nameInput),
+				validateRequired(companyInput),
+				validateEmail(emailInput),
+				validatePhone(phoneInput),
+				validateMessage(messageInput)
+			];
+			return results.every(Boolean);
+		}
+		[nameInput, companyInput, emailInput, phoneInput, messageInput].forEach(function(el){
+			if (!el) return;
+			el.addEventListener('blur', function(){
+				switch (el) {
+					case emailInput: validateEmail(el); break;
+					case phoneInput: validatePhone(el); break;
+					case messageInput: validateMessage(el); break;
+					default: validateRequired(el); break;
+				}
+			});
+			el.addEventListener('input', function(){ setError(el, ''); });
+		});
+
 		if (isZohoDesk) {
-			contactForm.addEventListener('submit', function() {
+			contactForm.addEventListener('submit', function(e) {
+				// Rate limit check
+				if (isRateLimited()) {
+					e.preventDefault();
+					const status = document.getElementById('formStatus');
+					if (status) {
+						const dict = getDict();
+						status.textContent = dict['contact.error.rate'];
+						status.classList.remove('success');
+						status.classList.add('error');
+					}
+					return;
+				}
+
+				// Block submit if invalid
+				if (!validateAll()) {
+					e.preventDefault();
+					const status = document.getElementById('formStatus');
+					if (status) {
+						const dict = getDict();
+						status.textContent = dict['contact.error.summary'];
+						status.classList.remove('success');
+						status.classList.add('error');
+					}
+					return;
+				}
+
 				logLine('Submitting to Zoho Desk...');
         const submitBtn = contactForm.querySelector('button[type="submit"]');
 				if (submitBtn) {
         submitBtn.disabled = true;
-					submitBtn.innerHTML = '<span class="icon-left">⏳</span>Sending...';
+					submitBtn.innerHTML = '<span class="icon-left">⏳</span>'+ (getDict()['contact.sending'] || 'Sending your request...');
 				}
 				let overlay = document.getElementById('formLoading');
 				if (overlay) { overlay.style.display = 'flex'; }
@@ -38,10 +137,14 @@ document.addEventListener('DOMContentLoaded', function() {
 						status.classList.remove('error');
 						status.classList.add('success');
 					}
+
+					// Record successful submission time for rate limit
+					setLastSubmitTs();
+
 					const submitBtn = contactForm.querySelector('button[type="submit"]');
 					if (submitBtn) {
 						submitBtn.disabled = false;
-						submitBtn.innerHTML = '<span class="icon-left">✉️</span>Send';
+						submitBtn.innerHTML = '<span class="icon-left">✉️</span>'+ (getDict()['contact.button'] || 'Send');
 					}
 					try { contactForm.reset(); } catch(e) {}
 				});
@@ -126,7 +229,13 @@ const i18n = {
 		'contact.placeholder.message': 'Tell us about your facility, timelines, and scope.',
 		'contact.button': 'Send',
 		'contact.success': 'Thanks! Your request was sent successfully.',
-		'contact.sending': 'Sending your request...'
+		'contact.sending': 'Sending your request...',
+		'contact.error.required': 'This field is required.',
+		'contact.error.email': 'Please enter a valid email address.',
+		'contact.error.phone': 'Please enter a valid phone number.',
+		'contact.error.min': 'Please enter at least 10 characters.',
+		'contact.error.summary': 'Please fix the highlighted fields and try again.',
+		'contact.error.rate': 'You can send only one request per hour. Please try again later.'
 	},
 	fr: {
 		'meta.title': 'Zero Trace — Nettoyage & Désinfection B2B',
@@ -149,7 +258,13 @@ const i18n = {
 		'contact.placeholder.message': 'Expliquez votre site, délais et périmètre.',
 		'contact.button': 'Envoyer',
 		'contact.success': 'Merci ! Votre demande a été envoyée avec succès.',
-		'contact.sending': 'Envoi de votre demande...'
+		'contact.sending': 'Envoi de votre demande...',
+		'contact.error.required': 'Ce champ est obligatoire.',
+		'contact.error.email': "Veuillez saisir une adresse e‑mail valide.",
+		'contact.error.phone': 'Veuillez saisir un numéro de téléphone valide.',
+		'contact.error.min': 'Veuillez saisir au moins 10 caractères.',
+		'contact.error.summary': 'Corrigez les champs en surbrillance puis réessayez.',
+		'contact.error.rate': 'Vous ne pouvez envoyer qu’une demande par heure. Réessayez plus tard.'
 	},
 	es: {
 		'meta.title': 'Zero Trace — Limpieza y Desinfección B2B',
@@ -172,7 +287,13 @@ const i18n = {
 		'contact.placeholder.message': 'Cuéntenos su instalación, plazos y alcance.',
 		'contact.button': 'Enviar',
 		'contact.success': '¡Gracias! Su solicitud se envió correctamente.',
-		'contact.sending': 'Enviando su solicitud...'
+		'contact.sending': 'Enviando su solicitud...',
+		'contact.error.required': 'Este campo es obligatorio.',
+		'contact.error.email': 'Introduzca un correo electrónico válido.',
+		'contact.error.phone': 'Introduzca un número de teléfono válido.',
+		'contact.error.min': 'Introduzca al menos 10 caracteres.',
+		'contact.error.summary': 'Corrija los campos resaltados e inténtelo de nuevo.',
+		'contact.error.rate': 'Solo puede enviar una solicitud por hora. Inténtelo de nuevo más tarde.'
 	},
 	de: {
 		'meta.title': 'Zero Trace — B2B Reinigung & Desinfektion',
@@ -195,7 +316,13 @@ const i18n = {
 		'contact.placeholder.message': 'Beschreiben Sie Anlage, Zeitplan und Umfang.',
 		'contact.button': 'Senden',
 		'contact.success': 'Danke! Ihre Anfrage wurde erfolgreich gesendet.',
-		'contact.sending': 'Ihre Anfrage wird gesendet...'
+		'contact.sending': 'Ihre Anfrage wird gesendet...',
+		'contact.error.required': 'Dieses Feld ist erforderlich.',
+		'contact.error.email': 'Bitte geben Sie eine gültige E‑Mail‑Adresse ein.',
+		'contact.error.phone': 'Bitte geben Sie eine gültige Telefonnummer ein.',
+		'contact.error.min': 'Bitte geben Sie mindestens 10 Zeichen ein.',
+		'contact.error.summary': 'Bitte korrigieren Sie die markierten Felder und versuchen Sie es erneut.',
+		'contact.error.rate': 'Sie können nur eine Anfrage pro Stunde senden. Bitte versuchen Sie es später erneut.'
 	},
 	ar: {
 		'meta.title': 'زيرو تريس — تنظيف وتعقيم للأعمال',
@@ -218,7 +345,13 @@ const i18n = {
 		'contact.placeholder.message': 'أخبرنا عن منشأتك والجدول الزمني ونطاق العمل.',
 		'contact.button': 'إرسال',
 		'contact.success': 'شكرًا لك! تم إرسال طلبك بنجاح.',
-		'contact.sending': 'جارٍ إرسال طلبك...'
+		'contact.sending': 'جارٍ إرسال طلبك...',
+		'contact.error.required': 'هذا الحقل مطلوب.',
+		'contact.error.email': 'يرجى إدخال بريد إلكتروني صالح.',
+		'contact.error.phone': 'يرجى إدخال رقم هاتف صالح.',
+		'contact.error.min': 'يرجى إدخال 10 أحرف على الأقل.',
+		'contact.error.summary': 'يرجى تصحيح الحقول المعلّمة ثم المحاولة مرة أخرى.',
+		'contact.error.rate': 'يمكنك إرسال طلب واحد فقط كل ساعة. يرجى المحاولة لاحقًا.'
 	}
 };
 
