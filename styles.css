@@ -268,19 +268,12 @@ input:focus, textarea:focus { border-color: var(--secondary); box-shadow: 0 0 0 
 /* Global box sizing to fix input overflow */
 *, *::before, *::after { box-sizing: border-box; }
 
-/* Service media images */
-.service-media { width: 100%; height: 140px; border-radius: 14px; background: #0c1218 center/cover; background-image: var(--img); margin-bottom: 12px; position: relative; }
-.service-media::after { content:""; position:absolute; inset:0; border-radius: inherit; background: linear-gradient(180deg, rgba(0,0,0,.0), rgba(0,0,0,.28)); }
 
 /* Tighter form layout control for right column issues */
 .contact-form { overflow: hidden; }
 .form-row { min-width: 0; }
 .form-field input, .form-field textarea { min-width: 0; width: 100%; }
 
-/* Map provider actions */
-.map-header { gap: 12px; }
-.map-actions { display: inline-flex; gap: 8px; align-items: center; }
-.btn.btn-xs { padding: 8px 10px; font-size: .85rem; border-radius: 10px; }
 
 /* Hidden utility */
 .hidden { display: none !important; } 

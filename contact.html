@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="preconnect" href="https://flagcdn.com">
+  <link rel="dns-prefetch" href="https://flagcdn.com">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="dns-prefetch" href="https://images.unsplash.com">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.gstatic.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; form-action https://desk.zoho.com; frame-src https://www.google.com;" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.gstatic.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; form-action https://desk.zoho.com; frame-src https://www.google.com https://desk.zoho.com;" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Contact — Misra Group</title>
   <meta name="description" content="Contact Misra Group. We respond within one business day." />
-  <link rel="canonical" href="/contact.html" />
+  <link rel="canonical" href="https://misragroup.website/contact.html" />
   <link rel="icon" href="/images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,7 +70,7 @@
             <ul class="contact-list">
               <li><span>📍</span> Sfax, Sakiet Ezzit, Tunisia</li>
               <li><span>📞</span> +216 27 91 27 12</li>
-              <li><span>✉️</span> contact@zerotrace.tn</li>
+              <li><span>✉️</span> contact@misragroup.website</li>
               <li class="socials">
                 <a href="#" aria-label="LinkedIn">in</a>
                 <a href="#" aria-label="Twitter">tw</a>
@@ -80,13 +84,13 @@
             </div>
           </div>
 
-          <form id="contactForm" class="contact-form" action="https://desk.zoho.com/support/WebToCase" method="POST" enctype="multipart/form-data" novalidate>
+          <form id="contactForm" class="contact-form" action="https://desk.zoho.com/support/WebToCase" method="POST" enctype="multipart/form-data" target="hiddenFormTarget" novalidate>
             <!-- Required Zoho Desk hidden fields -->
             <input type="hidden" name="xnQsjsdp" value="edbsn3db25e2a68d44829eef76377f9e9377c" />
             <input type="hidden" name="xmIwtLD" value="edbsnf42758c01460175df69cef3f36c0170c0a8335962cec59611fb2ce95e1a6e361" />
             <input type="hidden" name="xJdfEaS" value="" />
             <input type="hidden" name="actionType" value="Q2FzZXM=" />
-            <input type="hidden" name="returnURL" value="http://127.0.0.1:5501/contact.html?desk_return=1" />
+            <input type="hidden" name="returnURL" value="https://misragroup.website/contact.html?desk_return=1" />
 
             <div class="form-row">
               <div class="form-field">
@@ -126,12 +130,15 @@
     </section>
   </main>
 
+  <!-- Hidden iframe target to prevent navigation on form submit -->
+  <iframe name="hiddenFormTarget" id="hiddenFormTarget" style="display:none;width:0;height:0;border:0;" title="Submission target"></iframe>
+
   <!-- Submit loader overlay -->
   <div id="formLoading" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(2px);z-index:9999;align-items:center;justify-content:center;">
     <div style="background:#111827;color:#e5e7eb;padding:18px 22px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.35);font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
       <div style="display:flex;align-items:center;gap:10px;">
         <span style="display:inline-block;width:14px;height:14px;border:2px solid #2ec27e;border-top-color:transparent;border-radius:50%;animation:spin 1s linear infinite"></span>
-        <span>Sending your request...</span>
+        <span data-i18n="contact.sending">Sending your request...</span>
       </div>
     </div>
   </div>

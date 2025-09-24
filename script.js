@@ -18,6 +18,34 @@ document.addEventListener('DOMContentLoaded', function() {
 				let overlay = document.getElementById('formLoading');
 				if (overlay) { overlay.style.display = 'flex'; }
 			});
+
+			// If the form targets a hidden iframe, use its load event to show success
+			const hiddenTarget = document.getElementById('hiddenFormTarget');
+			if (hiddenTarget) {
+				hiddenTarget.addEventListener('load', function() {
+					const status = document.getElementById('formStatus');
+					let overlay = document.getElementById('formLoading');
+					if (overlay) { overlay.style.display = 'none'; }
+					if (status) {
+						// Use translated success message
+						try {
+							const lang = (function(){ try { return localStorage.getItem('site_lang') || 'en'; } catch(_) { return 'en'; } })();
+							const dict = i18n[lang] || i18n.en;
+							status.textContent = dict['contact.success'] || i18n.en['contact.success'];
+						} catch(_) {
+							status.textContent = 'Thanks! Your request was sent successfully.';
+						}
+						status.classList.remove('error');
+						status.classList.add('success');
+					}
+					const submitBtn = contactForm.querySelector('button[type="submit"]');
+					if (submitBtn) {
+						submitBtn.disabled = false;
+						submitBtn.innerHTML = '<span class="icon-left">✉️</span>Send';
+					}
+					try { contactForm.reset(); } catch(e) {}
+				});
+			}
 		} else {
 			const status = document.getElementById('formStatus');
 			if (status) status.textContent = 'Submission disabled: backend not configured.';
@@ -96,7 +124,9 @@ const i18n = {
 		'contact.placeholder.email': 'you@company.com',
 		'contact.placeholder.phone': '+1 555 000 1234',
 		'contact.placeholder.message': 'Tell us about your facility, timelines, and scope.',
-		'contact.button': 'Send'
+		'contact.button': 'Send',
+		'contact.success': 'Thanks! Your request was sent successfully.',
+		'contact.sending': 'Sending your request...'
 	},
 	fr: {
 		'meta.title': 'Zero Trace — Nettoyage & Désinfection B2B',
@@ -117,7 +147,9 @@ const i18n = {
 		'contact.placeholder.email': 'vous@societe.com',
 		'contact.placeholder.phone': '+33 1 23 45 67 89',
 		'contact.placeholder.message': 'Expliquez votre site, délais et périmètre.',
-		'contact.button': 'Envoyer'
+		'contact.button': 'Envoyer',
+		'contact.success': 'Merci ! Votre demande a été envoyée avec succès.',
+		'contact.sending': 'Envoi de votre demande...'
 	},
 	es: {
 		'meta.title': 'Zero Trace — Limpieza y Desinfección B2B',
@@ -138,7 +170,9 @@ const i18n = {
 		'contact.placeholder.email': 'usted@empresa.com',
 		'contact.placeholder.phone': '+34 600 000 000',
 		'contact.placeholder.message': 'Cuéntenos su instalación, plazos y alcance.',
-		'contact.button': 'Enviar'
+		'contact.button': 'Enviar',
+		'contact.success': '¡Gracias! Su solicitud se envió correctamente.',
+		'contact.sending': 'Enviando su solicitud...'
 	},
 	de: {
 		'meta.title': 'Zero Trace — B2B Reinigung & Desinfektion',
@@ -159,7 +193,9 @@ const i18n = {
 		'contact.placeholder.email': 'sie@firma.com',
 		'contact.placeholder.phone': '+49 160 0000000',
 		'contact.placeholder.message': 'Beschreiben Sie Anlage, Zeitplan und Umfang.',
-		'contact.button': 'Senden'
+		'contact.button': 'Senden',
+		'contact.success': 'Danke! Ihre Anfrage wurde erfolgreich gesendet.',
+		'contact.sending': 'Ihre Anfrage wird gesendet...'
 	},
 	ar: {
 		'meta.title': 'زيرو تريس — تنظيف وتعقيم للأعمال',
@@ -180,7 +216,9 @@ const i18n = {
 		'contact.placeholder.email': 'you@company.com',
 		'contact.placeholder.phone': '+216 27 91 27 12',
 		'contact.placeholder.message': 'أخبرنا عن منشأتك والجدول الزمني ونطاق العمل.',
-		'contact.button': 'إرسال'
+		'contact.button': 'إرسال',
+		'contact.success': 'شكرًا لك! تم إرسال طلبك بنجاح.',
+		'contact.sending': 'جارٍ إرسال طلبك...'
 	}
 };
 
