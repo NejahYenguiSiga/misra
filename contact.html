@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  
 </head>
 <body>
   <!-- Back to top button -->
@@ -64,6 +65,7 @@
     <section class="section contact">
       <div class="container">
         <div class="contact-grid">
+          
           <div class="contact-info">
             <h2 data-i18n-html="contact.title.html">Contact <span class="accent">Us</span></h2>
             <p data-i18n="contact.lead">Tell us about your facility and requirements. We’ll respond within one business day.</p>
@@ -137,13 +139,12 @@
   <div id="formLoading" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(2px);z-index:9999;align-items:center;justify-content:center;">
     <div style="background:#111827;color:#e5e7eb;padding:18px 22px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.35);font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
       <div style="display:flex;align-items:center;gap:10px;">
-        <span style="display:inline-block;width:14px;height:14px;border:2px solid #2ec27e;border-top-color:transparent;border-radius:50%;animation:spin 1s linear infinite"></span>
+        <span style="display:inline-block;width:14px;height:14px;border:2px solid #2ec27e;border-top-color:transparent;border-radius:50%;"></span>
         <span data-i18n="contact.sending">Sending your request...</span>
       </div>
     </div>
   </div>
-  <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
-
+  
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
@@ -157,7 +158,8 @@
   </footer>
 
   
-  <script src="script.js"></script>
+  
+  <script src="script.js" defer></script>
 </body>
 </html> 
 

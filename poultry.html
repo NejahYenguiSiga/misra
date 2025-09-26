@@ -44,6 +44,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  
   <link rel="icon" href="images/logo.png" />
 
   <script type="application/ld+json">
@@ -150,7 +151,7 @@
   }
   </script>
   <noscript>
-    <style> .reveal-up,.reveal-left,.reveal-right{opacity:1;transform:none} .nav-toggle{display:none} </style>
+    <style> .nav-toggle{display:none} </style>
     Your browser has JavaScript disabled. For the best experience, please enable it. You can still reach us at <a href="mailto:contact@misragroup.website">contact@misragroup.website</a> or call <a href="tel:+21627912712">+216 27 91 27 12</a>.
   </noscript>
 </head>
@@ -181,7 +182,7 @@
         </ul>
         <div class="lang-switch" aria-label="Language switcher">
           <button id="langBtn" class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false">
-            <img id="langFlag" src="https://flagcdn.com/w20/us.png" width="20" height="14" alt="English" loading="lazy" />
+            <img id="langFlag" src="https://flagcdn.com/w20/us.png" width="20" height="14" alt="English" loading="lazy" decoding="async" fetchpriority="low" />
             <span id="langCode">EN</span>
           </button>
           <ul id="langMenu" class="lang-menu" role="menu" aria-label="Select language" aria-hidden="true">
@@ -203,17 +204,17 @@
     <section id="home" class="hero section">
       <div class="hero-media" role="img" aria-label="Industrial cleaning background"></div>
       <div class="container hero-inner">
-        <h1 class="headline reveal-up" data-i18n-html="hero.headline.html">
+        <h1 class="headline" data-i18n-html="hero.headline.html">
           Zero Trace — <span class="accent">Leave No Trace</span> After Our Work Is Done.
         </h1>
-        <p class="subhead reveal-up" data-i18n="hero.subhead">
+        <p class="subhead" data-i18n="hero.subhead">
           B2B deep cleaning and sanitization for industrial environments. We deliver compliance-ready, eco-conscious results that look, feel, and test cleaner.
         </p>
-        <div class="hero-ctas reveal-up">
+        <div class="hero-ctas">
           <a href="/contact.html" class="btn btn-primary" data-i18n="hero.cta.primary"><span class="icon-left">✉️</span>Contact Us</a>
           <a href="/zerotrace.html" class="btn btn-outline" data-i18n="hero.cta.secondary">Explore Services</a>
         </div>
-        <div class="hero-badges reveal-up">
+        <div class="hero-badges">
           <span data-i18n="hero.badge1">Eco-conscious</span>
           <span data-i18n="hero.badge2">Compliance-first</span>
           <span data-i18n="hero.badge3">Fast Response</span>
@@ -226,7 +227,7 @@
     <section id="about" class="section section-split">
       <div class="container grid-2">
         <div class="sector-media" style="--img:url('images/Bab_Diwan_-_Porte_Delcassé_-_Sfax_-2-_باب_الديوان.jpg');"></div>
-        <div class="split-content reveal-right">
+        <div class="split-content">
           <h2 data-i18n-html="about.title.html">About Zero <span class="accent">Trace</span></h2>
           <p data-i18n="about.body">
             We specialize in professional B2B cleaning and sanitation that meets rigorous industry standards. Our teams are trained for sensitive environments—from poultry farms to municipal waste sites—delivering measurable disinfection, residue removal, and odor control.
@@ -247,27 +248,27 @@
         <h2 class="center" data-i18n-html="services.title">Core <span class="accent">Services</span></h2>
         <p class="center section-intro" data-i18n="services.intro">High-impact cleaning programs built for industrial reliability.</p>
         <div class="cards services">
-          <article class="card reveal-up">
+          <article class="card">
             <div class="icon">🧼</div>
             <h3 data-i18n="services.c1.title">Deep Sanitization & Disinfection</h3>
             <p data-i18n="services.c1.desc">Hospital-grade disinfection and ATP-tested sanitation for high-risk zones.</p>
           </article>
-          <article class="card reveal-up">
+          <article class="card">
             <div class="icon">⚙️</div>
             <h3 data-i18n="services.c2.title">Industrial Degreasing & Residue Removal</h3>
             <p data-i18n="services.c2.desc">Heavy-duty degreasers and foam cleaning for stubborn build-up and oils.</p>
           </article>
-          <article class="card reveal-up">
+          <article class="card">
             <div class="icon">🌬️</div>
             <h3 data-i18n="services.c3.title">Odor Control & Deodorization</h3>
             <p data-i18n="services.c3.desc">Neutralization programs targeting bacterial and organic odor sources.</p>
           </article>
-          <article class="card reveal-up">
+          <article class="card">
             <div class="icon">🗑️</div>
             <h3 data-i18n="services.c4.title">Waste Removal & Remediation</h3>
             <p data-i18n="services.c4.desc">Safe handling, sorting, and pre-treatment aligned with regulations.</p>
           </article>
-          <article class="card reveal-up">
+          <article class="card">
             <div class="icon">🚨</div>
             <h3 data-i18n="services.c5.title">Emergency Outbreak Cleaning</h3>
             <p data-i18n="services.c5.desc">Rapid containment and disinfection protocols for critical events.</p>
@@ -281,22 +282,22 @@
       <div class="container">
         <h2 class="center" data-i18n-html="sectors.title">Industries We <span class="accent">Serve</span></h2>
         <div class="cards sectors">
-          <article class="card reveal-up">
+          <article class="card">
             <div class="sector-media" style="--img:url('images/PoultryFarms.jpeg');"></div>
             <h3 data-i18n="sectors.c1.title">Poultry Farms</h3>
             <p data-i18n="sectors.c1.desc">Biosecurity-first programs to control pathogens and cross-contamination.</p>
           </article>
-          <article class="card reveal-up">
+          <article class="card">
             <div class="sector-media" style="--img:url('images/Olive-oilPresses.png');"></div>
             <h3 data-i18n="sectors.c2.title">Olive-oil Presses</h3>
             <p data-i18n="sectors.c2.desc">Residue and oil removal while protecting food-grade environments.</p>
           </article>
-          <article class="card reveal-up">
+          <article class="card">
             <div class="sector-media" style="--img:url('images/Hotels.jpg');"></div>
             <h3 data-i18n="sectors.c3.title">Hotels</h3>
             <p data-i18n="sectors.c3.desc">Back-of-house deep cleaning and front-of-house disinfection schedules.</p>
           </article>
-          <article class="card reveal-up">
+          <article class="card">
             <div class="sector-media" style="--img:url('images/MunicipalWasteSites.png');"></div>
             <h3 data-i18n="sectors.c4.title">Municipal Waste Sites</h3>
             <p data-i18n="sectors.c4.desc">Odor suppression and decontamination for high-load facilities.</p>
@@ -311,23 +312,23 @@
         <h2 class="center" data-i18n-html="clients.title">Our <span class="accent">Clients</span></h2>
         <p class="center section-intro" data-i18n="clients.intro">Trusted by operations leaders across agriculture, hospitality, and public works.</p>
         <div class="cards clients">
-          <article class="client-card reveal-up">
+          <article class="client-card">
             <div class="client-logo">AF</div>
             <h3>AgroFresh Poultry Co.</h3>
           </article>
-          <article class="client-card reveal-up">
+          <article class="client-card">
             <div class="client-logo">TO</div>
             <h3>TerraOlive Press</h3>
           </article>
-          <article class="client-card reveal-up">
+          <article class="client-card">
             <div class="client-logo">MH</div>
             <h3>Meridian Hotels Group</h3>
           </article>
-          <article class="client-card reveal-up">
+          <article class="client-card">
             <div class="client-logo">CW</div>
             <h3>CityWaste Services</h3>
           </article>
-          <article class="client-card reveal-up">
+          <article class="client-card">
             <div class="client-logo">GF</div>
             <h3>GreenField Farms</h3>
           </article>
@@ -365,13 +366,13 @@
         <h2 class="center" data-i18n="insights.title">Guides & Best Practices</h2>
         <p class="center section-intro" data-i18n="insights.intro">Practical, verifiable methods we use across industrial environments.</p>
         <div class="cards services">
-          <article id="insight-atp-testing" class="card reveal-up">
+          <article id="insight-atp-testing" class="card">
             <div class="icon">🧪</div>
             <h3 data-i18n="insights.a1.title">ATP Testing for Sanitization: Thresholds and Reporting</h3>
             <p data-i18n="insights.a1.desc">Why ATP matters, how we sample, and the pass/fail ranges we target in high‑risk zones.</p>
             <a href="/contact.html" class="btn btn-outline" data-i18n="insights.a1.cta">Talk to an expert</a>
           </article>
-          <article id="insight-odor-control" class="card reveal-up">
+          <article id="insight-odor-control" class="card">
             <div class="icon">🌫️</div>
             <h3 data-i18n="insights.a2.title">Odor Control in Municipal Waste Sites: A Practical Playbook</h3>
             <p data-i18n="insights.a2.desc">Source identification, neutralization chemistry, and measurable suppression metrics.</p>
@@ -387,15 +388,15 @@
         <p class="eyebrow center" data-i18n="faq.eyebrow">FAQ</p>
         <h2 class="center" data-i18n="faq.title">Common Questions</h2>
         <div class="cards services">
-          <article class="card reveal-up">
+          <article class="card">
             <h3 data-i18n="faq.q1">Which industries do you serve?</h3>
             <p data-i18n="faq.a1">We support poultry farms, olive‑oil presses, hotels and municipal waste sites with compliance‑first cleaning.</p>
           </article>
-          <article class="card reveal-up">
+          <article class="card">
             <h3 data-i18n="faq.q2">Do you provide emergency cleaning?</h3>
             <p data-i18n="faq.a2">Yes. We mobilize rapid containment and disinfection protocols for critical events.</p>
           </article>
-          <article class="card reveal-up">
+          <article class="card">
             <h3 data-i18n="faq.q3">How can we request a quote?</h3>
             <p data-i18n="faq.a3">Use the contact form or email contact@misragroup.website with your site details. We reply within one business day.</p>
           </article>
@@ -447,7 +448,8 @@
   </script>
 
   
-  <script src="script.js"></script>
+  
+  <script src="script.js" defer></script>
 </body>
 </html> 
 

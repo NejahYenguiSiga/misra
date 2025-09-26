@@ -419,7 +419,7 @@ Object.assign(i18n.en, {
   'faq.q2':'Do you provide emergency cleaning?',
   'faq.a2':'Yes. We mobilize rapid containment and disinfection protocols for critical events.',
   'faq.q3':'How can we request a quote?',
-  'faq.a3':'Use the contact form or email contact@zerotrace.tn with your site details. We reply within one business day.'
+  'faq.a3':'Use the contact form or email contact@misragroup.website with your site details. We reply within one business day.',
 });
 
 // Extend AR with site sections
@@ -486,7 +486,7 @@ Object.assign(i18n.ar, {
   'faq.q2':'هل تقدمون تنظيف الطوارئ؟',
   'faq.a2':'نعم. نقوم بتعبئة احتواء سريع وبروتوكولات تعقيم للأحداث الحرجة.',
   'faq.q3':'كيف نطلب عرض سعر؟',
-  'faq.a3':'استخدم نموذج الاتصال أو أرسل بريدًا إلى contact@zerotrace.tn مع تفاصيل موقعك. نرد خلال يوم عمل.'
+  'faq.a3':'استخدم نموذج الاتصال أو أرسل بريدًا إلى contact@misragroup.website مع تفاصيل موقعك. نرد خلال يوم عمل.'
 });
 
 Object.assign(i18n.en, {
@@ -578,7 +578,7 @@ Object.assign(i18n.fr, {
   'faq.q2':'Proposez‑vous des interventions d’urgence ?',
   'faq.a2':'Oui. Confinement rapide et protocoles de désinfection pour événements critiques.',
   'faq.q3':'Comment demander un devis ?',
-  'faq.a3':'Utilisez le formulaire de contact ou écrivez à contact@zerotrace.tn avec les détails de votre site. Réponse sous un jour ouvré.'
+  'faq.a3':'Utilisez le formulaire de contact ou écrivez à contact@misragroup.website avec les détails de votre site. Réponse sous un jour ouvré.'
 });
 
 Object.assign(i18n.es, {
@@ -644,7 +644,7 @@ Object.assign(i18n.es, {
   'faq.q2':'¿Ofrecen limpieza de emergencia?',
   'faq.a2':'Sí. Movilizamos contención rápida y protocolos de desinfección para eventos críticos.',
   'faq.q3':'¿Cómo solicitamos un presupuesto?',
-  'faq.a3':'Use el formulario de contacto o escriba a contact@zerotrace.tn con los detalles de su sitio. Respondemos en un día laborable.'
+  'faq.a3':'Use el formulario de contacto o escriba a contact@misragroup.website con los detalles de su sitio. Respondemos en un día laborable.'
 });
 
 Object.assign(i18n.de, {
@@ -710,7 +710,7 @@ Object.assign(i18n.de, {
   'faq.q2':'Bieten Sie Notfallreinigung an?',
   'faq.a2':'Ja. Wir mobilisieren schnelle Eindämmung und Desinfektionsprotokolle für kritische Ereignisse.',
   'faq.q3':'Wie erhalten wir ein Angebot?',
-  'faq.a3':'Nutzen Sie das Kontaktformular oder schreiben Sie an contact@zerotrace.tn mit Standortdetails. Antwort binnen eines Werktags.'
+  'faq.a3':'Nutzen Sie das Kontaktformular oder schreiben Sie an contact@misragroup.website mit Standortdetails. Antwort binnen eines Werktags.'
 });
 
 let currentLang = (function(){ try { return localStorage.getItem('site_lang') || 'en'; } catch(_) { return 'en'; } })();
@@ -783,7 +783,7 @@ function applyTranslations(lang) {
         if (yearEl) yearEl.textContent = year;
         const brandEl = document.querySelector('.footer .logo-text');
         const brand = brandEl ? brandEl.textContent.replace(/\s+/g,' ').trim() : '';
-        footerMeta.innerHTML = `© <span id=\"year\">${year}</span> ${brand}. ${translations[lang]['footer.reserved']}`;
+        footerMeta.innerHTML = `© <span id="year">${year}</span> ${brand}. ${translations[lang]['footer.reserved']}`;
     }
 
 	setDirection(lang);
@@ -836,8 +836,71 @@ document.addEventListener('DOMContentLoaded', function() {
     applyTranslations(currentLang); initActiveNav();
     const backToTopBtn = document.getElementById('backToTop');
     if (backToTopBtn) {
-        window.addEventListener('scroll', function() { backToTopBtn.style.display = window.pageYOffset > 300 ? 'block' : 'none'; });
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) backToTopBtn.classList.add('show');
+            else backToTopBtn.classList.remove('show');
+        });
         backToTopBtn.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    }
+
+    // Reveal on scroll animations
+    const revealEls = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+    const io = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                io.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5, rootMargin: '0px' }) : null;
+
+    function ensureRevealTargets() {
+        const selectors = [
+            '#services .cards.services > *',
+            '#sectors .cards.sectors > *',
+            '#clients .cards.clients > *',
+            '#why .benefits > *',
+            '#why .highlight-card',
+            '#insights .cards.services > *',
+            '#faq .cards.services > *',
+            '#contact .contact-form > *',
+            '#contact .contact-info > *',
+            '#contact .map-card',
+            '#about .split-content > *',
+            '.section-split .sector-media'
+        ];
+        selectors.forEach((selector) => {
+            document.querySelectorAll(selector).forEach((el) => {
+                const hasReveal = el.classList.contains('reveal-up') || el.classList.contains('reveal-left') || el.classList.contains('reveal-right') || el.classList.contains('revealed');
+                if (!hasReveal) el.classList.add('reveal-up');
+                if (io) io.observe(el);
+            });
+        });
+    }
+
+    function applyRevealStagger() {
+        const groups = [
+            '.cards.services', '.cards.sectors', '.cards.clients', '.benefits', '.contact-list',
+            '#insights .cards.services', '#faq .cards.services', '#contact .contact-form', '#contact .contact-info', '#why .highlight-card', '#about .split-content'
+        ];
+        groups.forEach((selector) => {
+            document.querySelectorAll(selector + ' > *').forEach((item, idx) => {
+                item.style.setProperty('--reveal-delay', Math.min(idx * 50, 250) + 'ms');
+            });
+        });
+    }
+
+    ensureRevealTargets();
+    applyRevealStagger();
+
+    if (!('IntersectionObserver' in window)) {
+        window.addEventListener('load', function(){
+            setTimeout(function(){
+                ensureRevealTargets();
+                applyRevealStagger();
+                document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(function(el){ el.classList.add('revealed'); });
+            }, 1200);
+        });
     }
 });
 
@@ -870,8 +933,13 @@ document.addEventListener('DOMContentLoaded', function() {
 		if (event.key === 'Escape') closeNav();
 	});
 
-	// Close when a nav link is clicked
+	// Close when a nav link or any actionable item is clicked
 	navMenu.querySelectorAll('a').forEach(function(link) {
 		link.addEventListener('click', function() { closeNav(); });
+	});
+	// Also close on clicks on buttons or list items inside the menu
+	navMenu.addEventListener('click', function(e) {
+		const actionable = e.target.closest('a, button, li');
+		if (actionable) closeNav();
 	});
 });
