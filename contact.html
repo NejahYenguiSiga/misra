@@ -7,7 +7,7 @@
   <link rel="dns-prefetch" href="https://images.unsplash.com">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.gstatic.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; form-action https://desk.zoho.com; frame-src https://www.google.com https://desk.zoho.com;" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://www.gstatic.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; form-action https://desk.zoho.com; frame-src https://*.google.com https://*.gstatic.com https://desk.zoho.com;" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Contact — Misra Group</title>
   <meta name="description" content="Contact Misra Group. We respond within one business day." />
@@ -119,11 +119,14 @@
                 <small class="error" aria-live="polite"></small>
               </div>
             </div>
+            
             <div class="form-field">
               <label for="message" data-i18n="contact.label.message">Message</label>
-              <textarea id="message" name="Description" rows="5" placeholder="Tell us about your facility, timelines, and scope." required data-i18n-placeholder="contact.placeholder.message"></textarea>
+              <textarea id="message" name="Description" rows="7
+              " placeholder="Tell us about your facility, timelines, and scope." required data-i18n-placeholder="contact.placeholder.message"></textarea>
               <small class="error" aria-live="polite"></small>
             </div>
+            <br>
             <button type="submit" class="btn btn-primary btn-block" data-i18n="contact.button"><span class="icon-left">✉️</span>Send</button>
             <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
           </form>
