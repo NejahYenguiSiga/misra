@@ -51,6 +51,8 @@ html[data-theme="light"] {
 html, body, .card, .contact-form, .highlight-card, .nav, .header, .footer, .section, .btn, input, textarea {
   transition: background-color .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease;
 }
+/* Ensure buttons are inline by default */
+.btn { display: inline-flex; align-items: center; width: auto; }
 
 /* Apply theme colors */
 html { scroll-behavior: smooth; }
@@ -162,11 +164,15 @@ p { margin: 0 0 16px; color: var(--muted); }
 .cards { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
 .cards.services .card { grid-column: span 4; }
 .cards.sectors .card { grid-column: span 3; }
+.cards.departments .card { grid-column: span 3; }
 
-.card { background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 22px; box-shadow: 0 20px 50px -20px var(--shadow); position: relative; overflow: hidden; }
+.card { background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 22px; box-shadow: 0 20px 50px -20px var(--shadow); position: relative; overflow: hidden; display: flex; flex-direction: column; }
 .card .icon { font-size: 26px; background: rgba(255,255,255,.06); width: 46px; height: 46px; display: grid; place-items: center; border-radius: 12px; margin-bottom: 10px; }
 .card h3 { margin: 6px 0 6px; }
 .card p { color: var(--muted); }
+/* Make buttons inline within cards */
+.cards .card > a.btn { display: inline-flex !important; margin-top: auto !important; width: auto !important; max-width: max-content !important; align-self: start !important; }
+#departments .card a.btn, #insights .card a.btn { display: inline-flex !important; width: auto !important; max-width: max-content !important; margin-top: auto !important; }
 
 /* Sector card image */
 .sector-media { width: 100%; height: 140px; border-radius: 14px; background: var(--card) center/cover; background-image: var(--img); margin-bottom: 12px; position: relative; }
@@ -231,6 +237,7 @@ input:focus, textarea:focus { border-color: var(--secondary); box-shadow: 0 0 0 
 @media (max-width: 900px) {
   .cards.services .card { grid-column: span 6; }
   .cards.sectors .card { grid-column: span 6; }
+  .cards.departments .card { grid-column: span 6; }
   .contact-grid { grid-template-columns: 1fr; }
   .nav .nav-menu { position: fixed; inset: 72px 12px auto 12px; background: rgba(10,14,18,.95); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.12); border-radius: 14px; padding: 12px; display: grid; gap: 6px; transform-origin: top right; transform: scale(.98); opacity: 0; pointer-events: none; }
   .nav.open .nav-menu { opacity: 1; transform: scale(1); pointer-events: auto; }
@@ -242,6 +249,7 @@ input:focus, textarea:focus { border-color: var(--secondary); box-shadow: 0 0 0 
 @media (max-width: 640px) {
   .cards.services .card { grid-column: span 12; }
   .cards.sectors .card { grid-column: span 12; }
+  .cards.departments .card { grid-column: span 12; }
   .hero { min-height: 76vh; }
   .hero-ctas { flex-direction: column; align-items: stretch; }
   .form-row { grid-template-columns: 1fr; }
@@ -567,7 +575,9 @@ html[data-theme="light"] .nav .btn.btn-sm:hover { background: #179c64; color: #f
 	html[data-theme="light"] .nav .nav-menu { background: rgba(255,255,255,.98); border-color: rgba(0,0,0,.12); }
 	html[data-theme="light"] .nav .nav-menu a { color: var(--text); }
 	html[data-theme="light"] .nav .nav-menu a:hover { background: rgba(0,0,0,.06); }
-} 
+	/* Dark theme: mirror light theme positions/dimensions */
+	html[data-theme="dark"] .nav .nav-menu { background: rgba(10,14,18,.95); border-color: rgba(255,255,255,.12); }
+}
 
 /* Map sizing consistency */
 .map-card { width: 100%; }
@@ -768,4 +778,73 @@ html[data-theme="light"] .nav .nav-menu a.active { background: #10b981 !importan
     color: #991b1b;
     border: 1px solid #fca5a5;
 }
+
+
+/* Ensure desktop nav remains inline so buttons are clickable */
+@media (min-width: 1025px) {
+	.nav .nav-menu { position: static; inset: auto; background: transparent; border: 0; border-radius: 0; padding: 0; display: flex; gap: 18px; opacity: 1; pointer-events: auto; transform: none; }
+}
+
+/* Keep language switch and theme toggle above content */
+.lang-switch, #themeToggle { position: relative; z-index: 20050 !important; pointer-events: auto !important; }
+.lang-menu { position: absolute; z-index: 20060 !important; pointer-events: auto !important; }
+.nav.open .lang-switch, .nav.open #themeToggle, .nav.open .lang-menu { z-index: 20060 !important; }
+
+
+/* Desktop hero tweak: bring content higher above the fold */
+@media (min-width: 1025px) {
+	.hero { min-height: 58vh; position: relative; }
+}
+
+/* Subtle top overlay to increase contrast at the very top */
+.hero { position: relative; }
+.hero::before { content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0)); z-index: 1; pointer-events: none; }
+.hero-inner { position: relative; z-index: 2; } 
+
+/* Safety: always show hero text and offset below header */
+.hero .headline, .hero .subhead, .hero .hero-ctas, .hero .hero-badges { opacity: 1 !important; visibility: visible !important; transform: none !important; }
+.hero-inner { padding-top: 0; } 
+
+/* Restore original hero height and departments spacing */
+.hero { min-height: 86vh !important; }
+#departments { padding-top: 76px !important; }
+#departments .section-intro { margin: 8px auto 32px !important; } 
+
+/* Departments visibility safety: ensure grid and items render */
+#departments .cards.departments { display: grid !important; grid-template-columns: repeat(12, 1fr) !important; gap: 20px !important; }
+#departments .cards.departments > .card { /* allow reveal animations to control visibility/transform */ } 
+
+/* Nav controls: ensure they are clickable above overlays */
+.lang-switch, #themeToggle { pointer-events: auto !important; position: relative; z-index: 7000 !important; }
+.lang-menu { pointer-events: auto !important; z-index: 8000 !important; position: absolute !important; top: calc(100% + 6px); right: 0; display: none; }
+.lang-menu.show { display: block !important; }
+.header, .nav, .nav-container { pointer-events: auto !important; } 
+
+/* Strong override: keep header/nav above page and clickable */
+.header { position: fixed; top: 0; left: 0; right: 0; z-index: 3000 !important; backdrop-filter: saturate(120%) blur(10px); background: rgba(10, 14, 18, .6); border-bottom: 1px solid rgba(255,255,255,.06); }
+.nav { position: relative; pointer-events: auto !important; z-index: 20010 !important; }
+.nav * { pointer-events: auto !important; }
+#langBtn, #themeToggle { pointer-events: auto !important; z-index: 20020 !important; }
+@media (max-width: 900px) { .nav .nav-menu { position: fixed !important; z-index: 20015 !important; } } 
+
+/* Ensure hero visuals never block header clicks */
+.hero-media, .hero-gradient, .hero::before { pointer-events: none !important; } 
+
+/* Dark theme: mirror light theme navbar spacing and alignment */
+html[data-theme="dark"] .nav .nav-menu { gap: 18px; }
+html[data-theme="dark"] .nav .nav-menu a { padding: 10px 12px; border-radius: 10px; }
+html[data-theme="dark"] .nav .lang-switch { margin-left: 12px; align-self: center; }
+html[data-theme="dark"] .nav #themeToggle { align-self: center; } 
+
+@media (min-width: 1025px) {
+	/* Desktop: both themes use identical inline nav layout */
+	html[data-theme="dark"] .nav .nav-menu { position: static !important; inset: auto !important; background: transparent !important; border: 0 !important; border-radius: 0 !important; padding: 0 !important; display: flex !important; gap: 18px !important; opacity: 1 !important; pointer-events: auto !important; transform: none !important; }
+} 
+
+/* Staggered reveal delays for Departments section */
+#departments .reveal-up { --reveal-delay: 140ms; }
+#departments .cards.departments > .card:nth-child(1) { --reveal-delay: 220ms; }
+#departments .cards.departments > .card:nth-child(2) { --reveal-delay: 360ms; }
+#departments .cards.departments > .card:nth-child(3) { --reveal-delay: 500ms; }
+#departments .cards.departments > .card:nth-child(4) { --reveal-delay: 640ms; }
 
