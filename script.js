@@ -235,7 +235,8 @@ const i18n = {
 		'contact.error.phone': 'Please enter a valid phone number.',
 		'contact.error.min': 'Please enter at least 10 characters.',
 		'contact.error.summary': 'Please fix the highlighted fields and try again.',
-		'contact.error.rate': 'You can send only one request per hour. Please try again later.'
+		    'contact.error.rate': 'You can send only one request per hour. Please try again later.',
+    'contact.address': 'Sfax, Sakiet Ezzit, Tunisia'
 	},
 	fr: {
 		'meta.title': 'Zero Trace — Nettoyage & Désinfection B2B',
@@ -264,7 +265,8 @@ const i18n = {
 		'contact.error.phone': 'Veuillez saisir un numéro de téléphone valide.',
 		'contact.error.min': 'Veuillez saisir au moins 10 caractères.',
 		'contact.error.summary': 'Corrigez les champs en surbrillance puis réessayez.',
-					'contact.error.rate': 'Vous ne pouvez envoyer qu\'une demande par heure. Réessayez plus tard.',
+    'contact.error.rate': 'Vous ne pouvez envoyer qu\'une demande par heure. Réessayez plus tard.',
+    'contact.address': 'Sfax, Sakiet Ezzit, Tunisie',
 
 		// Home – Misra Group services (group-level)
 		'services.title': 'Services du <span class="accent">Groupe</span>',
@@ -322,7 +324,8 @@ const i18n = {
 		'contact.error.phone': 'Introduzca un número de teléfono válido.',
 		'contact.error.min': 'Introduzca al menos 10 caracteres.',
 		'contact.error.summary': 'Corrija los campos resaltados e inténtelo de nuevo.',
-		'contact.error.rate': 'Solo puede enviar una solicitud por hora. Inténtelo de nuevo más tarde.',
+    'contact.error.rate': 'Solo puede enviar una solicitud por hora. Inténtelo de nuevo más tarde.',
+    'contact.address': 'Sfax, Sakiet Ezzit, Túnez',
 
 		// Home – Misra Group services
 		'services.title':'Servicios del <span class="accent">Grupo</span>',
@@ -380,7 +383,8 @@ const i18n = {
 		'contact.error.phone': 'Bitte geben Sie eine gültige Telefonnummer ein.',
 		'contact.error.min': 'Bitte geben Sie mindestens 10 Zeichen ein.',
 		'contact.error.summary': 'Bitte korrigieren Sie die markierten Felder und versuchen Sie es erneut.',
-		'contact.error.rate': 'Sie können nur eine Anfrage pro Stunde senden. Bitte versuchen Sie es später erneut.',
+    'contact.error.rate': 'Sie können nur eine Anfrage pro Stunde senden. Bitte versuchen Sie es später erneut.',
+    'contact.address': 'Sfax, Sakiet Ezzit, Tunesien',
 
 		// Home – Misra Group services
 		'services.title':'Konzern‑<span class="accent">Services</span>',
@@ -438,7 +442,8 @@ const i18n = {
 		'contact.error.phone': 'يرجى إدخال رقم هاتف صالح.',
 		'contact.error.min': 'يرجى إدخال 10 أحرف على الأقل.',
 		'contact.error.summary': 'يرجى تصحيح الحقول المعلّمة ثم المحاولة مرة أخرى.',
-		'contact.error.rate': 'يمكنك إرسال طلب واحد فقط كل ساعة. يرجى المحاولة لاحقًا.'
+		'contact.error.rate': 'يمكنك إرسال طلب واحد فقط كل ساعة. يرجى المحاولة لاحقًا.',
+		'contact.address': 'صفاقس، ساقية الزيت، تونس'
 	}
 };
 
@@ -1347,15 +1352,33 @@ window.__toggleTheme = function(e){ try{ e && e.preventDefault(); e && e.stopPro
   }
   
   // Translation data for the clean switcher
-  const cleanTranslations = {
-    EN: {
+    // Use the working translation system from your main site
+  window.translations = {
+    en: {
       // Navigation
       'nav.home': 'Home',
-      'nav.poultry': 'Poultry', 
-      'nav.olive': 'Olive',
-      'nav.export': 'Export',
-      'nav.zerotrace': 'Zero Trace',
-      'nav.contact': 'Contact',
+      'nav.about': 'About',
+      'nav.services': 'Services',
+      'nav.sectors': 'Sectors',
+      'nav.cta': 'Contact Us',
+      
+      // Contact
+      'contact.title': 'Contact <span class="accent">Us</span>',
+      'contact.desc': 'Tell us about your facility and requirements. We\'ll respond within one business day.',
+      'contact.addr': 'Sfax, Sakiet Ezzit, Tunisia',
+      
+      // Form
+      'form.name': 'Name',
+      'form.namePh': 'Jane Doe',
+      'form.company': 'Company',
+      'form.companyPh': 'Your Company',
+      'form.email': 'Email',
+      'form.emailPh': 'you@company.com',
+      'form.phone': 'Phone',
+      'form.phonePh': '+216 27 91 27 12',
+      'form.message': 'Message',
+      'form.messagePh': 'Tell us about your facility, timelines, and scope.',
+      'form.cta': '✉️ Send Email',
       
       // Hero Section
       'hero.title': 'Misra Group — <span class="accent">One Group</span>, Many Expert Departments.',
@@ -1451,6 +1474,110 @@ window.__toggleTheme = function(e){ try{ e && e.preventDefault(); e && e.stopPro
       'faq.a2': 'Yes. We mobilize rapid containment and disinfection protocols for critical events.',
       'faq.q3': 'How can we request a quote?',
       'faq.a3': 'Use the contact form or email contact@misragroup.website with your site details. We reply within one business day.'
+    },
+    fr: {
+      // Navigation
+      'nav.home': 'Accueil',
+      'nav.about': 'À propos',
+      'nav.services': 'Services',
+      'nav.sectors': 'Secteurs',
+      'nav.cta': 'Contactez‑nous',
+      
+      // Contact
+      'contact.title': 'Contactez-<span class="accent">nous</span>',
+      'contact.desc': 'Parlez-nous de votre site et de vos besoins. Réponse sous un jour ouvré.',
+      'contact.addr': 'Sfax, Sakiet Ezzit, Tunisie',
+      
+      // Form
+      'form.name': 'Nom',
+      'form.namePh': 'Jean Dupont',
+      'form.company': 'Société',
+      'form.companyPh': 'Votre société',
+      'form.email': 'Email',
+      'form.emailPh': 'vous@societe.com',
+      'form.phone': 'Téléphone',
+      'form.phonePh': '+33 1 23 45 67 89',
+      'form.message': 'Message',
+      'form.messagePh': 'Expliquez votre site, délais et périmètre.',
+      'form.cta': '✉️ Envoyer',
+    },
+    es: {
+      // Navigation
+      'nav.home': 'Inicio',
+      'nav.about': 'Nosotros',
+      'nav.services': 'Servicios',
+      'nav.sectors': 'Sectores',
+      'nav.cta': 'Contáctanos',
+      
+      // Contact
+      'contact.title': 'Contacta con <span class="accent">nosotros</span>',
+      'contact.desc': 'Cuéntenos su instalación y requisitos. Respondemos en un día laborable.',
+      'contact.addr': 'Sfax, Sakiet Ezzit, Túnez',
+      
+      // Form
+      'form.name': 'Nombre',
+      'form.namePh': 'Juan Pérez',
+      'form.company': 'Empresa',
+      'form.companyPh': 'Su empresa',
+      'form.email': 'Email',
+      'form.emailPh': 'usted@empresa.com',
+      'form.phone': 'Teléfono',
+      'form.phonePh': '+34 600 000 000',
+      'form.message': 'Mensaje',
+      'form.messagePh': 'Cuéntenos su instalación, plazos y alcance.',
+      'form.cta': '✉️ Enviar',
+    },
+    de: {
+      // Navigation
+      'nav.home': 'Start',
+      'nav.about': 'Über uns',
+      'nav.services': 'Leistungen',
+      'nav.sectors': 'Branchen',
+      'nav.cta': 'Kontakt aufnehmen',
+      
+      // Contact
+      'contact.title': 'Kontaktieren <span class="accent">Sie uns</span>',
+      'contact.desc': 'Beschreiben Sie Anlage und Bedarf. Antwort innerhalb eines Werktags.',
+      'contact.addr': 'Sfax, Sakiet Ezzit, Tunesien',
+      
+      // Form
+      'form.name': 'Name',
+      'form.namePh': 'Max Mustermann',
+      'form.company': 'Firma',
+      'form.companyPh': 'Ihre Firma',
+      'form.email': 'E‑Mail',
+      'form.emailPh': 'sie@firma.de',
+      'form.phone': 'Telefon',
+      'form.phonePh': '+49 30 12345678',
+      'form.message': 'Nachricht',
+      'form.messagePh': 'Beschreiben Sie Anlage, Zeitplan und Umfang.',
+      'form.cta': '✉️ Senden',
+    },
+    ar: {
+      // Navigation
+      'nav.home': 'الرئيسية',
+      'nav.about': 'من نحن',
+      'nav.services': 'الخدمات',
+      'nav.sectors': 'القطاعات',
+      'nav.cta': 'اتصل بنا',
+      
+      // Contact
+      'contact.title': 'تواصل <span class="accent">معنا</span>',
+      'contact.desc': 'أخبرنا عن منشأتك ومتطلباتك. سنرد خلال يوم عمل واحد.',
+      'contact.addr': 'صفاقس، ساقية الزيت، تونس',
+      
+      // Form
+      'form.name': 'الاسم',
+      'form.namePh': 'فلان الفلاني',
+      'form.company': 'الشركة',
+      'form.companyPh': 'اسم شركتك',
+      'form.email': 'البريد الإلكتروني',
+      'form.emailPh': 'you@company.tn',
+      'form.phone': 'الهاتف',
+      'form.phonePh': '+216 27 91 27 12',
+      'form.message': 'الرسالة',
+      'form.messagePh': 'صف منشأتك والمواعيد والنطاق.',
+      'form.cta': '✉️ إرسال',
     },
     FR: {
       // Navigation
@@ -1871,13 +1998,16 @@ window.__toggleTheme = function(e){ try{ e && e.preventDefault(); e && e.stopPro
   };
   
   // Function to translate content - clean version
-  function translateContent(lang) {
+  window.translateContent = function translateContent(lang) {
     console.log('🔄 Translating to:', lang);
-    const translations = cleanTranslations[lang];
+    const translations = window.translations[lang.toLowerCase()];
     if (!translations) {
       console.error('❌ No translations found for:', lang);
       return;
     }
+    
+    console.log('📄 Current page:', window.location.pathname);
+    console.log('🔤 Available translations:', Object.keys(translations).filter(k => k.startsWith('contact.')));
     
     // Navigation
     const navLinks = document.querySelectorAll('.new-nav-link');
@@ -2062,8 +2192,74 @@ window.__toggleTheme = function(e){ try{ e && e.preventDefault(); e && e.stopPro
       if (p && translations[faqKeys[index][1]]) p.textContent = translations[faqKeys[index][1]];
     });
     
-    console.log('✅ Translation completed for:', lang);
+      // Contact Page Translation using selector-based approach (like the working system)
+  const contactUpdates = [
+    { sel: '.contact-info h2', key: 'contact.title' },
+    { sel: '.contact-info p', key: 'contact.desc' },
+    { sel: '#contactAddress span[data-i18n="contact.address"]', key: 'contact.addr' },
+    { sel: 'label[for="name"]', key: 'form.name' },
+    { sel: 'label[for="company"]', key: 'form.company' },
+    { sel: 'label[for="email"]', key: 'form.email' },
+    { sel: 'label[for="phone"]', key: 'form.phone' },
+    { sel: 'label[for="message"]', key: 'form.message' },
+    { sel: 'button[type="submit"]', key: 'form.cta' }
+  ];
+  
+  console.log('🔄 Applying contact translations for:', lang);
+  
+  contactUpdates.forEach(({ sel, key }) => {
+    const el = document.querySelector(sel);
+    if (!el || !translations[key]) return;
+    console.log(`✅ Updating ${sel} with ${key}:`, translations[key]);
+    el.innerHTML = translations[key];
+  });
+  
+  // Update placeholders using the working system approach
+  const placeholderUpdates = [
+    { sel: '#name', key: 'form.namePh' },
+    { sel: '#company', key: 'form.companyPh' },
+    { sel: '#email', key: 'form.emailPh' },
+    { sel: '#phone', key: 'form.phonePh' },
+    { sel: '#message', key: 'form.messagePh' }
+  ];
+  
+  placeholderUpdates.forEach(({ sel, key }) => {
+    const el = document.querySelector(sel);
+    if (!el || !translations[key]) return;
+    console.log(`✅ Updating placeholder ${sel} with ${key}:`, translations[key]);
+    el.setAttribute('placeholder', translations[key]);
+    el.placeholder = translations[key];
+  });
+  
+  // Update address with icon (like the working system)
+  const addrLi = document.querySelector('#contactAddress');
+  if (addrLi && translations['contact.addr']) {
+    console.log('✅ Updating contact address to:', translations['contact.addr']);
+    addrLi.innerHTML = `<span>📍</span> <span>${translations['contact.addr']}</span>`;
   }
+    
+    console.log('✅ Translation completed for:', lang);
+  };
+  
+  // Debug button for testing translation
+  document.addEventListener('DOMContentLoaded', function() {
+    const debugBtn = document.getElementById('debugTranslate');
+    if (debugBtn) {
+      debugBtn.addEventListener('click', function() {
+        const currentLang = localStorage.getItem('cleanLangSwitcherLang') || 'EN';
+        console.log('🔧 DEBUG: Force translating to:', currentLang);
+        window.translateContent(currentLang);
+      });
+    }
+  });
+  
+  // Global debug function
+  window.debugTranslate = function(lang) {
+    const targetLang = lang || localStorage.getItem('cleanLangSwitcherLang') || 'EN';
+    console.log('🔧 GLOBAL DEBUG: Translating to:', targetLang);
+    console.log('🔧 Available translations:', window.cleanTranslations);
+    window.translateContent(targetLang);
+  };
   
   // Toggle dropdown
   function toggleDropdown() {
@@ -2129,8 +2325,10 @@ window.__toggleTheme = function(e){ try{ e && e.preventDefault(); e && e.stopPro
     document.documentElement.lang = langCodes[langCode];
     document.documentElement.dir = langCode === 'AR' ? 'rtl' : 'ltr';
     
-    // Translate content
-    translateContent(langCode);
+    // Translate content using lowercase language code
+    const lowerLang = langCode.toLowerCase();
+    console.log('⏳ Calling translateContent for:', lowerLang);
+    translateContent(lowerLang);
     
     // Save language preference
     localStorage.setItem('cleanLangSwitcherLang', langCode);
@@ -2224,6 +2422,14 @@ window.__toggleTheme = function(e){ try{ e && e.preventDefault(); e && e.stopPro
     const savedTheme = getTheme();
     console.log('📱 Loading saved theme:', savedTheme);
     setTheme(savedTheme);
+    
+    // Force translation for contact page
+    if (window.location.pathname.includes('contact.html')) {
+      setTimeout(() => {
+        console.log('🔄 Force translating contact page to:', savedLang);
+        translateContent(savedLang);
+      }, 200);
+    }
   });
   
   // Initialize immediately if DOM is already loaded
@@ -2239,6 +2445,14 @@ window.__toggleTheme = function(e){ try{ e && e.preventDefault(); e && e.stopPro
     
     // Load saved theme immediately
     const savedTheme = getTheme();
+    
+    // Force translation for contact page (immediate)
+    if (window.location.pathname.includes('contact.html')) {
+      setTimeout(() => {
+        console.log('🔄 Force translating contact page (immediate) to:', savedLang);
+        translateContent(savedLang);
+      }, 200);
+    }
     console.log('📱 Loading saved theme (immediate):', savedTheme);
     setTheme(savedTheme);
   }
