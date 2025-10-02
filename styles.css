@@ -587,6 +587,12 @@ html[data-theme="light"] .new-lang-dropdown-menu li.active {
   gap: 10px;
   color: var(--text);
   font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.new-logo:hover {
+  opacity: 0.8;
 }
 
 .new-logo-mark {
