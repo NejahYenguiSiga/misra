@@ -159,44 +159,66 @@
   <!-- Back to top button -->
   <button id="backToTop" aria-label="Back to top" title="Back to top">▲</button>
 
-  <!-- Header / Navigation -->
-  <header id="header" class="header">
-    <div class="container nav-container">
-      <a href="/index.html" class="logo" aria-label="Misra Group Home">
-        <span class="logo-mark" aria-hidden="true">MG</span>
-        <span class="logo-text">Misra <strong>Group</strong></span>
-      </a>
-      <nav class="nav" aria-label="Primary">
-        <button class="nav-toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Open menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+  <!-- NEW CLEAN HEADER - LANGUAGE SWITCHER ONLY -->
+  <header id="newHeader" class="new-header">
+    <div class="new-container">
+      <div class="new-logo">
+        <span class="new-logo-mark">MG</span>
+        <span class="new-logo-text">Misra <strong>Group</strong></span>
+      </div>
+      
+      <nav class="new-nav" aria-label="Primary navigation">
+        <button class="new-nav-toggle" aria-controls="new-nav-menu" aria-expanded="false" aria-label="Open menu">
+          <span class="nav-bar"></span>
+          <span class="nav-bar"></span>
+          <span class="nav-bar"></span>
         </button>
-        <ul id="nav-menu" class="nav-menu">
-          <li><a href="/index.html" class="active">Home</a></li>
-          <li><a href="/poultry.html">Poultry</a></li>
-          <li><a href="/olive.html">Olive</a></li>
-          <li><a href="/export.html">Export</a></li>
-          <li><a href="/zerotrace.html">Zero Trace</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+        <ul id="newNavMenu" class="new-nav-menu">
+          <li><a href="index.html" class="new-nav-link">Home</a></li>
+          <li><a href="poultry.html" class="new-nav-link active">Poultry</a></li>
+          <li><a href="olive.html" class="new-nav-link">Olive</a></li>
+          <li><a href="export.html" class="new-nav-link">Export</a></li>
+          <li><a href="zerotrace.html" class="new-nav-link">Zero Trace</a></li>
+          <li><a href="contact.html" class="new-nav-link">Contact</a></li>
         </ul>
-        <div class="lang-switch" aria-label="Language switcher">
-          <button id="langBtn" class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false">
-            <img id="langFlag" src="https://flagcdn.com/w20/us.png" width="20" height="14" alt="English" loading="lazy" decoding="async" fetchpriority="low" />
-            <span id="langCode">EN</span>
+      </nav>
+      
+      <div class="new-controls">
+        <button id="cleanThemeToggle" class="clean-theme-btn" type="button" aria-label="Toggle theme">
+          <span class="theme-icon">🌓</span>
+        </button>
+        
+        <div class="new-lang-dropdown">
+          <button id="cleanLangButton" class="clean-lang-btn" type="button" aria-haspopup="true" aria-expanded="false">
+            <img id="currentLangFlag" class="lang-flag-img" src="https://flagcdn.com/w20/gb.png" width="20" height="14" alt="English" loading="lazy" />
+            <span id="cleanCurrentLang">EN</span>
+            <span class="clean-arrow">▼</span>
           </button>
-          <ul id="langMenu" class="lang-menu" role="menu" aria-label="Select language" aria-hidden="true">
-            <li role="menuitem" data-lang="en" data-flag="https://flagcdn.com/w20/us.png"><img src="https://flagcdn.com/w20/us.png" width="20" height="14" alt="English" loading="lazy" /> EN</li>
-            <li role="menuitem" data-lang="fr" data-flag="https://flagcdn.com/w20/fr.png"><img src="https://flagcdn.com/w20/fr.png" width="20" height="14" alt="Français" loading="lazy" /> FR</li>
-            <li role="menuitem" data-lang="es" data-flag="https://flagcdn.com/w20/es.png"><img src="https://flagcdn.com/w20/es.png" width="20" height="14" alt="Español" loading="lazy" /> ES</li>
-            <li role="menuitem" data-lang="de" data-flag="https://flagcdn.com/w20/de.png"><img src="https://flagcdn.com/w20/de.png" width="20" height="14" alt="Deutsch" loading="lazy" /> DE</li>
-            <li role="menuitem" data-lang="ar" data-flag="https://flagcdn.com/w20/tn.png"><img src="https://flagcdn.com/w20/tn.png" width="20" height="14" alt="العربية" loading="lazy" /> AR</li>
+          <ul id="cleanLangDropdown" class="clean-lang-menu" role="menu" aria-hidden="true">
+            <li role="menuitem" data-clean-lang="EN" data-flag="https://flagcdn.com/w20/gb.png" data-flag-alt="English">
+              <img class="clean-flag-img" src="https://flagcdn.com/w20/gb.png" width="20" height="14" alt="English" loading="lazy" />
+              <span>English</span>
+            </li>
+            <li role="menuitem" data-clean-lang="FR" data-flag="https://flagcdn.com/w20/fr.png" data-flag-alt="Français">
+              <img class="clean-flag-img" src="https://flagcdn.com/w20/fr.png" width="20" height="14" alt="Français" loading="lazy" />
+              <span>Français</span>
+            </li>
+            <li role="menuitem" data-clean-lang="ES" data-flag="https://flagcdn.com/w20/es.png" data-flag-alt="Español">
+              <img class="clean-flag-img" src="https://flagcdn.com/w20/es.png" width="20" height="14" alt="Español" loading="lazy" />
+              <span>Español</span>
+            </li>
+            <li role="menuitem" data-clean-lang="DE" data-flag="https://flagcdn.com/w20/de.png" data-flag-alt="Deutsch">
+              <img class="clean-flag-img" src="https://flagcdn.com/w20/de.png" width="20" height="14" alt="Deutsch" loading="lazy" />
+              <span>Deutsch</span>
+            </li>
+            <li role="menuitem" data-clean-lang="AR" data-flag="https://flagcdn.com/w20/tn.png" data-flag-alt="العربية">
+              <img class="clean-flag-img" src="https://flagcdn.com/w20/tn.png" width="20" height="14" alt="العربية" loading="lazy" />
+              <span>العربية</span>
+            </li>
           </ul>
         </div>
-        <button id="themeToggle" class="lang-btn" type="button" aria-label="Toggle theme">🌓</button>
-      </nav>
+      </div>
     </div>
-    
   </header>
 
   <main>

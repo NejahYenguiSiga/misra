@@ -8,19 +8,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title data-i18n="home.meta.title">Misra Group — Industrial Services & Departments</title>
-  <meta name="description" content="Misra Group is a multi‑department industrial group. Zero Trace is our waste collection and environmental services arm." data-i18n="home.meta.description" />
+  <title>Misra Group — Industrial Services & Departments</title>
+  <meta name="description" content="Misra Group is a multi‑department industrial group. Zero Trace is our waste collection and environmental services arm." />
   <link rel="canonical" href="https://misragroup.website/" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b0f12" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; connect-src 'self' https://api.emailjs.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://images.unsplash.com https://flagcdn.com; font-src 'self' https://fonts.gstatic.com; frame-src https://www.google.com; upgrade-insecure-requests" />
-  <meta name="google-site-verification" content="tmAmuef7kiGiXwuOGxB1KY3qx54sJxJMss0Xt0tZvU4" />  <!-- Hreflang (language routes) -->
-  <link rel="alternate" href="https://misragroup.website/" hreflang="en" />
-  <link rel="alternate" href="https://misragroup.website/fr/" hreflang="fr" />
-  <link rel="alternate" href="https://misragroup.website/es/" hreflang="es" />
-  <link rel="alternate" href="https://misragroup.website/de/" hreflang="de" />
-  <link rel="alternate" href="https://misragroup.website/ar/" hreflang="ar" />
-  <link rel="alternate" href="https://misragroup.website/" hreflang="x-default" />
+  <meta name="google-site-verification" content="tmAmuef7kiGiXwuOGxB1KY3qx54sJxJMss0Xt0tZvU4" />
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Misra Group" />
@@ -29,10 +23,6 @@
   <meta property="og:url" content="https://misragroup.website/" />
   <meta property="og:image" content="https://misragroup.website/images/Hotels.jpg" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:locale:alternate" content="fr_FR" />
-  <meta property="og:locale:alternate" content="es_ES" />
-  <meta property="og:locale:alternate" content="de_DE" />
-  <meta property="og:locale:alternate" content="ar_TN" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Misra Group — Industrial Services & Departments" />
@@ -103,7 +93,7 @@
       "contactType": "customer service",
       "telephone": "+216 27 91 27 12",
       "email": "contact@misragroup.website",
-      "availableLanguage": ["en","fr","ar","es","de"]
+      "availableLanguage": ["en"]
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -138,44 +128,66 @@
   <!-- Back to top button -->
   <button id="backToTop" aria-label="Back to top" title="Back to top">▲</button>
 
-  <!-- Header / Navigation -->
-  <header id="header" class="header">
-    <div class="container nav-container">
-      <a href="/index.html" class="logo" aria-label="Misra Group Home">
-        <span class="logo-mark" aria-hidden="true">MG</span>
-        <span class="logo-text">Misra <strong>Group</strong></span>
-      </a>
-      <nav class="nav" aria-label="Primary">
-        <button class="nav-toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Open menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+  <!-- NEW CLEAN HEADER - LANGUAGE SWITCHER ONLY -->
+  <header id="newHeader" class="new-header">
+    <div class="new-container">
+      <div class="new-logo">
+        <span class="new-logo-mark">MG</span>
+        <span class="new-logo-text">Misra <strong>Group</strong></span>
+      </div>
+      
+      <nav class="new-nav" aria-label="Primary navigation">
+        <button class="new-nav-toggle" aria-controls="new-nav-menu" aria-expanded="false" aria-label="Open menu">
+          <span class="nav-bar"></span>
+          <span class="nav-bar"></span>
+          <span class="nav-bar"></span>
         </button>
-        <ul id="nav-menu" class="nav-menu">
-          <li><a href="/index.html" class="active">Home</a></li>
-          <li><a href="/poultry.html">Poultry</a></li>
-          <li><a href="/olive.html">Olive</a></li>
-          <li><a href="/export.html">Export</a></li>
-          <li><a href="/zerotrace.html">Zero Trace</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+        <ul id="newNavMenu" class="new-nav-menu">
+          <li><a href="index.html" class="new-nav-link active">Home</a></li>
+          <li><a href="poultry.html" class="new-nav-link">Poultry</a></li>
+          <li><a href="olive.html" class="new-nav-link">Olive</a></li>
+          <li><a href="export.html" class="new-nav-link">Export</a></li>
+          <li><a href="zerotrace.html" class="new-nav-link">Zero Trace</a></li>
+          <li><a href="contact.html" class="new-nav-link">Contact</a></li>
         </ul>
-        <div class="lang-switch" aria-label="Language switcher">
-          <button id="langBtn" class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false">
-            <img id="langFlag" src="https://flagcdn.com/w20/us.png" width="20" height="14" alt="English" loading="lazy" />
-            <span id="langCode">EN</span>
+      </nav>
+      
+      <div class="new-controls">
+        <button id="cleanThemeToggle" class="clean-theme-btn" type="button" aria-label="Toggle theme">
+          <span class="theme-icon">🌓</span>
+        </button>
+        
+        <div class="new-lang-dropdown">
+          <button id="cleanLangButton" class="clean-lang-btn" type="button" aria-haspopup="true" aria-expanded="false">
+            <img id="currentLangFlag" class="lang-flag-img" src="https://flagcdn.com/w20/gb.png" width="20" height="14" alt="English" loading="lazy" />
+            <span id="cleanCurrentLang">EN</span>
+            <span class="clean-arrow">▼</span>
           </button>
-          <ul id="langMenu" class="lang-menu" role="menu" aria-label="Select language" aria-hidden="true">
-            <li role="menuitem" data-lang="en" data-flag="https://flagcdn.com/w20/us.png"><img src="https://flagcdn.com/w20/us.png" width="20" height="14" alt="English" loading="lazy" /> EN</li>
-            <li role="menuitem" data-lang="fr" data-flag="https://flagcdn.com/w20/fr.png"><img src="https://flagcdn.com/w20/fr.png" width="20" height="14" alt="Français" loading="lazy" /> FR</li>
-            <li role="menuitem" data-lang="es" data-flag="https://flagcdn.com/w20/es.png"><img src="https://flagcdn.com/w20/es.png" width="20" height="14" alt="Español" loading="lazy" /> ES</li>
-            <li role="menuitem" data-lang="de" data-flag="https://flagcdn.com/w20/de.png"><img src="https://flagcdn.com/w20/de.png" width="20" height="14" alt="Deutsch" loading="lazy" /> DE</li>
-            <li role="menuitem" data-lang="ar" data-flag="https://flagcdn.com/w20/tn.png"><img src="https://flagcdn.com/w20/tn.png" width="20" height="14" alt="العربية" loading="lazy" /> AR</li>
+          <ul id="cleanLangDropdown" class="clean-lang-menu" role="menu" aria-hidden="true">
+            <li role="menuitem" data-clean-lang="EN" data-flag="https://flagcdn.com/w20/gb.png" data-flag-alt="English">
+              <img class="clean-flag-img" src="https://flagcdn.com/w20/gb.png" width="20" height="14" alt="English" loading="lazy" />
+              <span>English</span>
+            </li>
+            <li role="menuitem" data-clean-lang="FR" data-flag="https://flagcdn.com/w20/fr.png" data-flag-alt="Français">
+              <img class="clean-flag-img" src="https://flagcdn.com/w20/fr.png" width="20" height="14" alt="Français" loading="lazy" />
+              <span>Français</span>
+            </li>
+            <li role="menuitem" data-clean-lang="ES" data-flag="https://flagcdn.com/w20/es.png" data-flag-alt="Español">
+              <img class="clean-flag-img" src="https://flagcdn.com/w20/es.png" width="20" height="14" alt="Español" loading="lazy" />
+              <span>Español</span>
+            </li>
+            <li role="menuitem" data-clean-lang="DE" data-flag="https://flagcdn.com/w20/de.png" data-flag-alt="Deutsch">
+              <img class="clean-flag-img" src="https://flagcdn.com/w20/de.png" width="20" height="14" alt="Deutsch" loading="lazy" />
+              <span>Deutsch</span>
+            </li>
+            <li role="menuitem" data-clean-lang="AR" data-flag="https://flagcdn.com/w20/tn.png" data-flag-alt="العربية">
+              <img class="clean-flag-img" src="https://flagcdn.com/w20/tn.png" width="20" height="14" alt="العربية" loading="lazy" />
+              <span>العربية</span>
+            </li>
           </ul>
         </div>
-        <button id="themeToggle" class="lang-btn" type="button" aria-label="Toggle theme">🌓</button>
-      </nav>
+      </div>
     </div>
-    
   </header>
 
   <main>
@@ -183,20 +195,20 @@
     <section id="home" class="hero section">
       <div class="hero-media" role="img" aria-label="Industrial cleaning background"></div>
       <div class="container hero-inner">
-        <h1 class="headline reveal-up" data-i18n-html="home.hero.headline.html">
+        <h1 class="headline reveal-up">
           Misra Group — <span class="accent">One Group</span>, Many Expert Departments.
         </h1>
-        <p class="subhead reveal-up" data-i18n="home.hero.subhead">
+        <p class="subhead reveal-up">
           A unified group covering cleaning & sanitization, poultry, olive‑oil processing, exports and more—compliance‑first, measurable results, fast response.
         </p>
         <div class="hero-ctas reveal-up">
-          <a href="#departments" class="btn btn-primary" data-i18n="home.hero.cta.primary"><span class="icon-left">🏢</span>Explore Departments</a>
-          <a href="#about" class="btn btn-outline" data-i18n="home.hero.cta.secondary">About Misra Group</a>
+          <a href="#departments" class="btn btn-primary"><span class="icon-left">🏢</span>Explore Departments</a>
+          <a href="#about" class="btn btn-outline">About Misra Group</a>
         </div>
         <div class="hero-badges reveal-up">
-          <span data-i18n="home.hero.badge1">Multi‑department</span>
-          <span data-i18n="home.hero.badge2">Compliance‑first</span>
-          <span data-i18n="home.hero.badge3">Fast Response</span>
+          <span>Multi‑department</span>
+          <span>Compliance‑first</span>
+          <span>Fast Response</span>
         </div>
       </div>
       <div class="hero-gradient" aria-hidden="true"></div>
@@ -205,32 +217,32 @@
     <!-- Departments Section -->
     <section id="departments" class="section bg-contrast">
       <div class="container">
-        <h2 class="center reveal-up" data-i18n-html="departments.title">Our <span class="accent">Departments</span></h2>
-        <p class="center section-intro reveal-up" data-i18n="departments.intro">Explore Misra Group’s divisions serving industry end‑to‑end.</p>
+        <h2 class="center reveal-up">Our <span class="accent">Departments</span></h2>
+        <p class="center section-intro reveal-up">Explore Misra Group's divisions serving industry end‑to‑end.</p>
         <div class="cards departments">
           <article class="card reveal-up">
             <div class="icon">♻️</div>
-            <h3 data-i18n="departments.c1.title">Waste Collection & Environmental Services</h3>
-            <p data-i18n="departments.c1.desc">Collection, sorting and environmental programs for Misra sites and external companies.</p>
-            <a href="/zerotrace.html" class="btn btn-outline" data-i18n="departments.c1.cta">Learn more</a>
+            <h3>Waste Collection & Environmental Services</h3>
+            <p>Collection, sorting and environmental programs for Misra sites and external companies.</p>
+            <a href="/zerotrace.html" class="btn btn-outline">Learn more</a>
           </article>
           <article class="card reveal-up">
             <div class="icon">🐔</div>
-            <h3 data-i18n="departments.c2.title">Poultry</h3>
-            <p data-i18n="departments.c2.desc">Biosecurity‑led programs for farms and processing environments.</p>
-            <a href="/poultry.html" class="btn btn-outline" data-i18n="departments.c2.cta">Learn more</a>
+            <h3>Poultry</h3>
+            <p>Biosecurity‑led programs for farms and processing environments.</p>
+            <a href="/poultry.html" class="btn btn-outline">Learn more</a>
           </article>
           <article class="card reveal-up">
             <div class="icon">🫒</div>
-            <h3 data-i18n="departments.c3.title">Olive‑oil</h3>
-            <p data-i18n="departments.c3.desc">Residue management and hygienic operations for olive‑oil presses.</p>
-            <a href="/olive.html" class="btn btn-outline" data-i18n="departments.c3.cta">Learn more</a>
+            <h3>Olive‑oil</h3>
+            <p>Residue management and hygienic operations for olive‑oil presses.</p>
+            <a href="/olive.html" class="btn btn-outline">Learn more</a>
           </article>
           <article class="card reveal-up">
             <div class="icon">🚚</div>
-            <h3 data-i18n="departments.c4.title">Export</h3>
-            <p data-i18n="departments.c4.desc">Logistics and export services with reliable timelines.</p>
-            <a href="/export.html" class="btn btn-outline" data-i18n="departments.c4.cta">Learn more</a>
+            <h3>Export</h3>
+            <p>Logistics and export services with reliable timelines.</p>
+            <a href="/export.html" class="btn btn-outline">Learn more</a>
           </article>
         </div>
       </div>
@@ -241,15 +253,15 @@
       <div class="container grid-2">
         <div class="sector-media" style="--img:url('images/Bab_Diwan_-_Porte_Delcassé_-_Sfax_-2-_باب_الديوان.jpg');"></div>
         <div class="split-content">
-          <h2 data-i18n-html="about.title.html">About <span class="accent">Misra Group</span></h2>
-          <p data-i18n="about.body">
+          <h2>About <span class="accent">Misra Group</span></h2>
+          <p>
             Misra Group is a multi‑department industrial group with farms and olive‑oil presses, plus an export department. Zero Trace is our waste collection and environmental services company—created to serve Misra Group operations and now serving external companies as well.
           </p>
           <ul class="checklist">
-            <li data-i18n="about.li1">Eco-friendly, science-backed methods</li>
-            <li data-i18n="about.li2">Compliance-focused protocols and reporting</li>
-            <li data-i18n="about.li3">Industrial-grade equipment and PPE</li>
-            <li data-i18n="about.li4">Rapid deployment and scheduled maintenance</li>
+            <li>Eco-friendly, science-backed methods</li>
+            <li>Compliance-focused protocols and reporting</li>
+            <li>Industrial-grade equipment and PPE</li>
+            <li>Rapid deployment and scheduled maintenance</li>
           </ul>
         </div>
       </div>
@@ -258,33 +270,33 @@
     <!-- Services Section -->
     <section id="services" class="section bg-contrast">
       <div class="container">
-        <h2 class="center" data-i18n-html="home.services.title">Group <span class="accent">Services</span></h2>
-        <p class="center section-intro" data-i18n="home.services.intro">Group-wide capabilities delivered across Misra departments.</p>
+        <h2 class="center">Group <span class="accent">Services</span></h2>
+        <p class="center section-intro">Group-wide capabilities delivered across Misra departments.</p>
         <div class="cards services">
           <article class="card">
             <div class="icon">🧼</div>
-            <h3 data-i18n="home.services.c1.title">Environmental Services & Waste Collection</h3>
-            <p data-i18n="home.services.c1.desc">Programs for collection, sorting and environmental improvement for our sites and external partners.</p>
+            <h3>Environmental Services & Waste Collection</h3>
+            <p>Programs for collection, sorting and environmental improvement for our sites and external partners.</p>
           </article>
           <article class="card">
             <div class="icon">⚙️</div>
-            <h3 data-i18n="home.services.c2.title">Poultry Operations</h3>
-            <p data-i18n="home.services.c2.desc">Support for farms and processing sites with biosecurity protocols.</p>
+            <h3>Poultry Operations</h3>
+            <p>Support for farms and processing sites with biosecurity protocols.</p>
           </article>
           <article class="card">
             <div class="icon">🌬️</div>
-            <h3 data-i18n="home.services.c3.title">Olive‑oil Operations</h3>
-            <p data-i18n="home.services.c3.desc">Hygiene and operational support for olive‑oil presses and extraction lines.</p>
+            <h3>Olive‑oil Operations</h3>
+            <p>Hygiene and operational support for olive‑oil presses and extraction lines.</p>
           </article>
           <article class="card">
             <div class="icon">🗑️</div>
-            <h3 data-i18n="home.services.c4.title">Logistics & Export</h3>
-            <p data-i18n="home.services.c4.desc">Logistics chains, customs compliance and reliable timelines to our markets.</p>
+            <h3>Logistics & Export</h3>
+            <p>Logistics chains, customs compliance and reliable timelines to our markets.</p>
           </article>
           <article class="card">
             <div class="icon">✅</div>
-            <h3 data-i18n="home.services.c5.title">Group Quality & Compliance</h3>
-            <p data-i18n="home.services.c5.desc">Audits, reporting and continuous improvement across the group.</p>
+            <h3>Group Quality & Compliance</h3>
+            <p>Audits, reporting and continuous improvement across the group.</p>
           </article>
         </div>
       </div>
@@ -293,27 +305,27 @@
     <!-- Industries We Serve -->
     <section id="sectors" class="section">
       <div class="container">
-        <h2 class="center" data-i18n-html="sectors.title">Industries We <span class="accent">Serve</span></h2>
+        <h2 class="center">Industries We <span class="accent">Serve</span></h2>
         <div class="cards sectors">
           <article class="card">
             <div class="sector-media" style="--img:url('images/PoultryFarms.jpeg');"></div>
-            <h3 data-i18n="sectors.c1.title">Poultry Farms</h3>
-            <p data-i18n="sectors.c1.desc">Biosecurity-first programs to control pathogens and cross-contamination.</p>
+            <h3>Poultry Farms</h3>
+            <p>Biosecurity-first programs to control pathogens and cross-contamination.</p>
           </article>
           <article class="card">
             <div class="sector-media" style="--img:url('images/Olive-oilPresses.png');"></div>
-            <h3 data-i18n="sectors.c2.title">Olive-oil Presses</h3>
-            <p data-i18n="sectors.c2.desc">Residue and oil removal while protecting food-grade environments.</p>
+            <h3>Olive-oil Presses</h3>
+            <p>Residue and oil removal while protecting food-grade environments.</p>
           </article>
           <article class="card">
             <div class="sector-media" style="--img:url('images/Hotels.jpg');"></div>
-            <h3 data-i18n="sectors.c3.title">Hotels</h3>
-            <p data-i18n="sectors.c3.desc">Back-of-house deep cleaning and front-of-house disinfection schedules.</p>
+            <h3>Hotels</h3>
+            <p>Back-of-house deep cleaning and front-of-house disinfection schedules.</p>
           </article>
           <article class="card">
             <div class="sector-media" style="--img:url('images/MunicipalWasteSites.png');"></div>
-            <h3 data-i18n="sectors.c4.title">Municipal Waste Sites</h3>
-            <p data-i18n="sectors.c4.desc">Odor suppression and decontamination for high-load facilities.</p>
+            <h3>Municipal Waste Sites</h3>
+            <p>Odor suppression and decontamination for high-load facilities.</p>
           </article>
         </div>
       </div>
@@ -322,8 +334,8 @@
     <!-- Clients Section -->
     <section id="clients" class="section bg-contrast">
       <div class="container">
-        <h2 class="center" data-i18n-html="clients.title">Our <span class="accent">Clients</span></h2>
-        <p class="center section-intro" data-i18n="clients.intro">Trusted by operations leaders across agriculture, hospitality, and public works.</p>
+        <h2 class="center">Our <span class="accent">Clients</span></h2>
+        <p class="center section-intro">Trusted by operations leaders across agriculture, hospitality, and public works.</p>
         <div class="cards clients">
           <article class="client-card">
             <div class="client-logo">AF</div>
@@ -353,21 +365,21 @@
     <section id="why" class="section bg-contrast">
       <div class="container grid-2">
         <div>
-          <h2 data-i18n-html="why.title">Why Choose <span class="accent">Us</span></h2>
+          <h2>Why Choose <span class="accent">Us</span></h2>
           <ul class="benefits">
-            <li data-i18n="why.b1"><strong>No-trace cleaning</strong> — finish that looks pristine and tests even better.</li>
-            <li data-i18n="why.b2"><strong>Compliance</strong> — aligned with local and industry regulations.</li>
-            <li data-i18n="why.b3"><strong>Safety</strong> — strict PPE and hazard controls.</li>
-            <li data-i18n="why.b4"><strong>Fast response</strong> — rapid mobilization when you need it.</li>
-            <li data-i18n="why.b5"><strong>Eco-conscious</strong> — reduced water, responsible chemistry.</li>
+            <li><strong>No-trace cleaning</strong> — finish that looks pristine and tests even better.</li>
+            <li><strong>Compliance</strong> — aligned with local and industry regulations.</li>
+            <li><strong>Safety</strong> — strict PPE and hazard controls.</li>
+            <li><strong>Fast response</strong> — rapid mobilization when you need it.</li>
+            <li><strong>Eco-conscious</strong> — reduced water, responsible chemistry.</li>
           </ul>
           <br>
         </div>
         <div class="highlight-card">
-          <p class="eyebrow" data-i18n="guarantee.eyebrow">Guarantee</p>
-          <h3 data-i18n="guarantee.title">We leave no trace.</h3>
-          <p data-i18n="guarantee.body">Our name is our promise. From microbial loads to visible residue, we remove it—documented.</p>
-          <a href="/contact.html" class="btn btn-primary btn-block" data-i18n="guarantee.cta"><span class="icon-left">✉️</span>Contact Us</a>
+          <p class="eyebrow">Guarantee</p>
+          <h3>We leave no trace.</h3>
+          <p>Our name is our promise. From microbial loads to visible residue, we remove it—documented.</p>
+          <a href="/contact.html" class="btn btn-primary btn-block"><span class="icon-left">✉️</span>Contact Us</a>
         </div>
       </div>
     </section>
@@ -375,21 +387,21 @@
     <!-- Insights Section -->
     <section id="insights" class="section">
       <div class="container">
-        <p class="eyebrow center" data-i18n="insights.eyebrow">Insights</p>
-        <h2 class="center" data-i18n="insights.title">Guides & Best Practices</h2>
-        <p class="center section-intro" data-i18n="insights.intro">Practical, verifiable methods we use across industrial environments.</p>
+        <p class="eyebrow center">Insights</p>
+        <h2 class="center">Guides & Best Practices</h2>
+        <p class="center section-intro">Practical, verifiable methods we use across industrial environments.</p>
         <div class="cards services">
           <article id="insight-atp-testing" class="card">
             <div class="icon">🧪</div>
-            <h3 data-i18n="insights.a1.title">ATP Testing for Sanitization: Thresholds and Reporting</h3>
-            <p data-i18n="insights.a1.desc">Why ATP matters, how we sample, and the pass/fail ranges we target in high‑risk zones.</p>
-            <a href="/contact.html" class="btn btn-outline" data-i18n="insights.a1.cta">Talk to an expert</a>
+            <h3>ATP Testing for Sanitization: Thresholds and Reporting</h3>
+            <p>Why ATP matters, how we sample, and the pass/fail ranges we target in high‑risk zones.</p>
+            <a href="/contact.html" class="btn btn-outline">Talk to an expert</a>
           </article>
           <article id="insight-odor-control" class="card">
             <div class="icon">🌫️</div>
-            <h3 data-i18n="insights.a2.title">Odor Control in Municipal Waste Sites: A Practical Playbook</h3>
-            <p data-i18n="insights.a2.desc">Source identification, neutralization chemistry, and measurable suppression metrics.</p>
-            <a href="/contact.html" class="btn btn-outline" data-i18n="insights.a2.cta">Request the full SOP</a>
+            <h3>Odor Control in Municipal Waste Sites: A Practical Playbook</h3>
+            <p>Source identification, neutralization chemistry, and measurable suppression metrics.</p>
+            <a href="/contact.html" class="btn btn-outline">Request the full SOP</a>
           </article>
         </div>
       </div>
@@ -398,20 +410,20 @@
     <!-- FAQ (visible) -->
     <section id="faq" class="section bg-contrast">
       <div class="container">
-        <p class="eyebrow center" data-i18n="faq.eyebrow">FAQ</p>
-        <h2 class="center" data-i18n="faq.title">Common Questions</h2>
+        <p class="eyebrow center">FAQ</p>
+        <h2 class="center">Common Questions</h2>
         <div class="cards services">
           <article class="card">
-            <h3 data-i18n="faq.q1">Which industries do you serve?</h3>
-            <p data-i18n="faq.a1">We support poultry farms, olive‑oil presses, hotels and municipal waste sites with compliance‑first cleaning.</p>
+            <h3>Which industries do you serve?</h3>
+            <p>We support poultry farms, olive‑oil presses, hotels and municipal waste sites with compliance‑first cleaning.</p>
           </article>
           <article class="card">
-            <h3 data-i18n="faq.q2">Do you provide emergency cleaning?</h3>
-            <p data-i18n="faq.a2">Yes. We mobilize rapid containment and disinfection protocols for critical events.</p>
+            <h3>Do you provide emergency cleaning?</h3>
+            <p>Yes. We mobilize rapid containment and disinfection protocols for critical events.</p>
           </article>
           <article class="card">
-            <h3 data-i18n="faq.q3">How can we request a quote?</h3>
-            <p data-i18n="faq.a3">Use the contact form or email contact@misragroup.website with your site details. We reply within one business day.</p>
+            <h3>How can we request a quote?</h3>
+            <p>Use the contact form or email contact@misragroup.website with your site details. We reply within one business day.</p>
           </article>
         </div>
       </div>
